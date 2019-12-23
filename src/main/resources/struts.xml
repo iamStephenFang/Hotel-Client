@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="hotel" extends="struts-default" namespace="/">
+<!--&lt;!&ndash;        生成验证码&ndash;&gt;-->
+<!--        <action name="authGenerate" class="authCodeAction" method="authGenerate">-->
+<!--            <result name="GeneratedSuccess">/backend_login.jsp</result>-->
+<!--            <result name="GeneratedFail">/404.jsp</result>-->
+<!--        </action>-->
+<!--&lt;!&ndash;        服务员和管理员登录&ndash;&gt;-->
+<!--        <action name="login" class="loginAction" method="login">-->
+<!--            <result name="waiterLoginSuccess">/check_in.jsp</result>-->
+<!--            <result name="adminLoginSuccess">/backend_login.jsp</result>-->
+<!--            <result name="LoginFail" type="chain">authGenerate</result>-->
+<!--        </action>-->
+<!--&lt;!&ndash;        订单操作 —— 查询所有订单&ndash;&gt;-->
+<!--        <action name="listAllOrders" class="orderAction" method="listAll">-->
+<!--            <result name="findAllSuccess">/search_order.jsp</result>-->
+<!--            <result name="findAllFail">/404.jsp</result>-->
+<!--        </action>-->
+<!--&lt;!&ndash;        订单操作 —— 单条件搜索订单&ndash;&gt;-->
+<!--        <action name="findOrderById" class="orderAction" method="findOrderById">-->
+<!--            <result name="findOrderByIdSuccess">/order_edit.jsp</result>-->
+<!--            <result name="findOrderByIdFail">/404.jsp</result>-->
+<!--        </action>-->
+<!--&lt;!&ndash;        订单操作 —— 多条件搜索订单&ndash;&gt;-->
+<!--        <action name="findOrders" class="orderAction" method="findByMultiConditions">-->
+<!--            <result name="findByMultiConditionsSuccess">/search_order.jsp</result>-->
+<!--            <result name="findByMultiConditionsFail">/404.jsp</result>-->
+<!--        </action>-->
+<!--&lt;!&ndash;        订单操作 —— 修改订单信息&ndash;&gt;-->
+<!--        <action name="updateOrder" class="orderAction" method="updateOrder">-->
+<!--            <result name="updateOrderSuccess">/success_icon.jsp</result>-->
+<!--            <result name="updateOrderFail">/404.jsp</result>-->
+<!--        </action>-->
+<!--&lt;!&ndash;        房客操作 —— 通过订单号和身份证号单条房客信息&ndash;&gt;-->
+<!--        <action name="findCustomerByIds" class="checkCustomerAction" method="findCustomerByIds">-->
+<!--            <result name="findCustomerByIdsSuccess">/cust_edit.jsp</result>-->
+<!--            <result name="findCustomerByIdsFail">/404.jsp</result>-->
+<!--        </action>-->
+<!--&lt;!&ndash;        房客操作 —— 查询所有房客信息&ndash;&gt;-->
+<!--        <action name="listAllCustomers" class="checkCustomerAction" method="findAllCheckCustomers">-->
+<!--            <result name="findAllCheckCustomersSuccess">/search_cust.jsp</result>-->
+<!--            <result name="findAllCheckCustomersFail">/404.jsp</result>-->
+<!--        </action>-->
+<!--&lt;!&ndash;        房客操作 —— 查询所有房客信息&ndash;&gt;-->
+<!--        <action name="findCustomers" class="checkCustomerAction" method="findByMultiConditions">-->
+<!--            <result name="findByMultiConditionsSuccess">/search_cust.jsp</result>-->
+<!--            <result name="findByMultiConditionsFail">/404.jsp</result>-->
+<!--        </action>-->
+<!--&lt;!&ndash;        房客操作 —— 修改房客信息&ndash;&gt;-->
+<!--        <action name="updateCustomer" class="checkCustomerAction" method="updateCheckCustomer">-->
+<!--            <result name="updateCheckCustomerSuccess">/success_icon.jsp</result>-->
+<!--            <result name="updateCheckCustomerFail">/404.jsp</result>-->
+<!--        </action>-->
+<!--&lt;!&ndash;        服务员办理入住 —— 查询订单&ndash;&gt;-->
+<!--        <action name="searchOrder" class="checkInAction" method="findOrderById">-->
+<!--            <result name="findOrderByIdSuccess">/check_in.jsp</result>-->
+<!--            <result name="findOrderByIdFail">/404.jsp</result>-->
+<!--        </action>-->
+<!--&lt;!&ndash;        服务员办理入住 —— 查询空房&ndash;&gt;-->
+<!--        <action name="findEmptyRoom" class="checkInAction" method="findRoomByOrderId">-->
+<!--            <result name="findRoomByOrderIdSuccess">/check_in.jsp</result>-->
+<!--            <result name="findRoomByOrderIdFail">/404.jsp</result>-->
+<!--        </action>-->
+<!--&lt;!&ndash;        服务员办理入住 —— 插入房客信息以及订单和入住房客中间表记录&ndash;&gt;-->
+<!--        <action name="insertCustomer" class="checkInAction" method="checkIn">-->
+<!--            <result name="checkInSuccess">/check_in.jsp</result>-->
+<!--            <result name="checkInFail">/404.jsp</result>-->
+<!--        </action>-->
+<!--&lt;!&ndash;        服务员办理退房 —— 按房间号和离开时间为空查找对应订单信息&ndash;&gt;-->
+<!--        <action name="findCheckOutOrder" class="checkOutAction" method="findOrderByRoomIdAndLeaveTime">-->
+<!--            <result name="findOrderByRoomIdAndLeaveTimeSuccess">/check_out.jsp</result>-->
+<!--            <result name="findOrderByRoomIdAndLeaveTimeFail">/404.jsp</result>-->
+<!--        </action>-->
+<!--&lt;!&ndash;        服务员办理退房 —— 更新入离开时间、入住状态、房间状态和订单状态&ndash;&gt;-->
+<!--        <action name="updateCheckOutStatus" class="checkOutAction" method="updateLeaveTimeAndStatus">-->
+<!--            <result name="updateLeaveTimeAndStatusSuccess">/check_out.jsp</result>-->
+<!--            <result name="updateLeaveTimeAndStatusFail">/404.jsp</result>-->
+<!--        </action>-->
+<!--        <action name="checkIn_SearchOrderId" class="checkInAction" method="findOrderById">-->
+<!--            <result name="findOrderByIdSuccess">/check_in.jsp</result>-->
+<!--            <result name="findOrderByIdFail">/404.jsp</result>-->
+<!--        </action>-->
+<!--&lt;!&ndash;        修改管理员或服务员信息 ——修改房客账户和密码&ndash;&gt;-->
+<!--        <action name="updateInfo" class="infoAction" method="updateInfo">-->
+<!--            <result name="updateSuccess" type="chain">authGenerate</result>-->
+<!--            <result name="updateFailed">/info_edit.jsp</result>-->
+<!--        </action>-->
+
+    </package>
+</struts>
