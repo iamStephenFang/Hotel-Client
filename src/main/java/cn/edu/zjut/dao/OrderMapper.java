@@ -5,6 +5,7 @@ import cn.edu.zjut.po.OrderExtendsRegister;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -40,4 +41,28 @@ public interface OrderMapper {
      * 更新订单
      */
     int updateOrder(Order order);
+
+    /**
+     * @author 朱炫帆
+     * @param order 订单
+     * @return int
+     * 新增订单
+     */
+    int insertOrder(Order order);
+
+    /**
+     * @author 朱炫帆
+     * @param order 订单
+     * @return int
+     * 删除订单
+     */
+    int deleteOrder(Order order);
+
+    /**
+     * @author 朱炫帆
+     * @param order 订单
+     * @return int
+     * 删除订单
+     */
+    List<Order> findNonemptyRoom(@Param("roomType") String roomType, @Param("checkInTime")Date checkInTime, @Param("leaveTime")Date leaveTime);
 }

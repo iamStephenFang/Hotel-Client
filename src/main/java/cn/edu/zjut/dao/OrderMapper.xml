@@ -80,4 +80,29 @@
             orderDetail = #{orderDetail}
         where orderID = #{orderId}
     </update>
+
+<!--    新增订单-->
+    <insert id="insertOrder" parameterType="order">
+        insert
+        into `order` (orderId,roomType,orderTime,checkInTime,leaveTime,payment,roomNum,orderDetail,phone,orderStatus)
+              values (#{orderId},#{roomType},#{orderTime},#{checkInTime},#{leaveTime},
+                      #{payment},#{roomNum},#{orderDetail},#{register.phone},0)
+    </insert>
+
+<!--    取消订单-->
+    <delete id="deleteOrder" parameterType="order">
+        delete from `order` where orderId=#{orderId}
+    </delete>
+
+<!--    查询非空房间-->
+    <select id="findNonemptyRoom">
+         select
+         count(orderID)
+             from `order` o
+             where o.roomType=#{roomType}
+             and
+             (   (#{leaveTime}>=o.checkInTime and o.checkInTime >= #{checkInTime} ) or
+                 (#{leaveTime}>=o.leaveTime and o.leaveTime >= #{checkInTime} )
+             )
+    </select>
 </mapper>

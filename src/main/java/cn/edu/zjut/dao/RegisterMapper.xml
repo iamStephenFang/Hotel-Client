@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.zjut.dao.RegisterMapper">
+
+    <resultMap id="registerMapper" type="register">
+        <id property="phone" column="phone"/>
+        <result property="account" column="account"/>
+        <result property="password" column="password"/>
+        <result property="gender" column="gender"/>
+        <result property="email" column="email"/>
+        <result property="score" column="score"/>
+
+        <association property="member" javaType="member">
+            <id property="level" column="level"/>
+            <result property="discount" column="discount"/>
+            <result property="memberDetail" column="memberDetail"/>
+        </association>
+    </resultMap>
+
+    <!--    查询所有注册用户信息： -->
+    <!--    手机号，账户名，密码，性别，邮箱，积分，等级，折扣，会员详情-->
+    <select id="findAllRegisters" resultMap="registerMapper">
+        select
+            phone,
+            account,
+            password,
+            gender,
+            email,
+            score,
+            level,
+            discount,
+            memberDetail
+        from `register`r,`member`m
+        where r.level=m.level
+    </select>
+
+    <!--    通过手机号、等级、账户名 查询用户信息： -->
+    <select id="findByMultiConditions"  resultMap="registerMapper">
+        select *
+        from `register`
+        <where>
+
+            <if test="phone != null and phone != ''">
+                and phone = #{phone}
+            </if>
+            <if test="account != null and account != ''">
+                and account = #{account}
+            </if>
+            <if test="level != null and level != ''">
+                and level = #{member.level}
+            </if>
+        </where>
+    </select>
+    <!--     注册会员-->
+    <insert id="insertRegister" parameterType="register">
+        insert
+        into `register` (phone,account,password,gender,email,level,score)
+                 values (#{phone},#{account},#{password},#{gender},#{email},1,0)
+    </insert>
+    <!--    更新会员信息-->
+    <update id="updateRegister" parameterType="register">
+        update `register`
+        set
+            account = #{account},
+            password = #{password},
+            gender = #{gender},
+            email = #{email},
+            level = #{member.level},
+            score = #{score}
+      where phone = #{phone}
+    </update>
+    <!--    通过订单号查询会员-->
+    <select id="findByOrderID" parameterType="int" resultMap="registerMapper">
+        select
+            phone,
+            account,
+            password,
+            gender,
+            email,
+            score,
+            level
+        from `register`r , `order`o
+        <where>
+            <if test="orderId != null and orderId != ''">
+                and orderId = #{orderId}
+            </if>
+            and o.phone = r.phone
+        </where>
+    </select>
+</mapper>
