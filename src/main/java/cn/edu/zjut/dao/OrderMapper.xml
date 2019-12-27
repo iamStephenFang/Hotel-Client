@@ -81,6 +81,8 @@
         where orderID = #{orderId}
     </update>
 
+
+    <!--     以下为朱炫帆写的正确率堪忧的代码-->
 <!--    新增订单-->
     <insert id="insertOrder" parameterType="order">
         insert
@@ -90,14 +92,15 @@
     </insert>
 
 <!--    取消订单-->
-    <delete id="deleteOrder" parameterType="order">
-        delete from `order` where orderId=#{orderId}
+    <delete id="deleteOrder" parameterType="String">
+        delete
+        from `order`
+        where orderId=#{orderId}
     </delete>
 
 <!--    查询非空房间-->
-    <select id="findNonemptyRoom">
-         select
-         count(orderID)
+    <select id="findNonemptyRoom" resultType="order">
+         select *
              from `order` o
              where o.roomType=#{roomType}
              and

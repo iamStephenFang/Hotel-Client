@@ -3,6 +3,7 @@ package cn.edu.zjut.service;
 import cn.edu.zjut.dao.RegisterMapper;
 import cn.edu.zjut.po.Register;
 import com.opensymphony.xwork2.ActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,6 +15,16 @@ public class RegisterService implements IRegisterService {
     private Map session;
     private Map request;
     private RegisterMapper registerMapper = null;
+
+    public RegisterMapper getRegisterMapper() {
+        return registerMapper;
+    }
+
+    @Autowired
+    public void setRegisterMapper(RegisterMapper registerMapper) {
+        this.registerMapper = registerMapper;
+    }
+
     /**
      * @author 方宣淼
      * @return boolean
@@ -32,7 +43,7 @@ public class RegisterService implements IRegisterService {
                 return false;
             }
             else {
-                request.put("register",registers);
+                request.put("registers",registers);
                 for (Register register: registers){
                     System.out.println(register);
                 }
@@ -55,6 +66,7 @@ public class RegisterService implements IRegisterService {
         System.out.println("正在执行findByPhone方法...");
         ActionContext context = ActionContext.getContext();
         request = (Map<String, String>) context.get("request");
+        List<Register> registers = new ArrayList<Register>();
         try {
             Register register = registerMapper.findByPhone(phone);
             if (register == null){
@@ -64,7 +76,7 @@ public class RegisterService implements IRegisterService {
             else {
                 System.out.println(register);
                 System.out.println("找到注册用户...");
-                request.put("register",register);
+                request.put("registers",register);
                 return true;
             }
         }catch (Exception e){
@@ -89,6 +101,64 @@ public class RegisterService implements IRegisterService {
             }
             else {
                 System.out.println("更新成功...");
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * @author 方宣淼
+     * @return boolean
+     * 根据账户名或手机号查询所有用户
+     */
+    @Override
+    public boolean findByMultiConditions(String account,String phone) {
+        System.out.println("正在执行findByMultiConditions方法...");
+        ActionContext context = ActionContext.getContext();
+        request = (Map<String, List>)context.get("request");
+        List<Register> registers = new ArrayList<Register>();
+        try {
+            registers = registerMapper.findByMultiConditions(account,phone);
+            if(registers == null){
+                System.out.println("查询失败...");
+                return false;
+            }
+            else {
+                request.put("registers",registers);
+                for (Register register: registers){
+                    System.out.println(register);
+                }
+                System.out.println("查询成功...");
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+
+    /**
+     * @author 朱炫帆
+     * @return boolean
+     * 注册用户
+     */
+
+    @Override
+    public boolean insertRegister(Register register){
+        System.out.println("正在执行insertRegister方法...");
+        try {
+            int insertedColumns = registerMapper.insertRegister(register);
+            if (insertedColumns == 0){
+                System.out.println("注册失败...");
+                return false;
+            }
+            else {
+                System.out.println("注册成功...");
                 return true;
             }
         }catch (Exception e){

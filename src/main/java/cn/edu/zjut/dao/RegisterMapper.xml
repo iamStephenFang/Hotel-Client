@@ -34,29 +34,13 @@
         where r.level=m.level
     </select>
 
-    <!--    通过手机号、等级、账户名 查询用户信息： -->
-    <select id="findByMultiConditions"  resultMap="registerMapper">
+    <!--    按手机号注册用户信息： -->
+    <select id="findByPhone" parameterType="string" resultType="register">
         select *
         from `register`
-        <where>
-
-            <if test="phone != null and phone != ''">
-                and phone = #{phone}
-            </if>
-            <if test="account != null and account != ''">
-                and account = #{account}
-            </if>
-            <if test="level != null and level != ''">
-                and level = #{member.level}
-            </if>
-        </where>
+        where phone=#{phone}
     </select>
-    <!--     注册会员-->
-    <insert id="insertRegister" parameterType="register">
-        insert
-        into `register` (phone,account,password,gender,email,level,score)
-                 values (#{phone},#{account},#{password},#{gender},#{email},1,0)
-    </insert>
+
     <!--    更新会员信息-->
     <update id="updateRegister" parameterType="register">
         update `register`
@@ -69,6 +53,48 @@
             score = #{score}
       where phone = #{phone}
     </update>
+
+    <!--    按手机号/账号名  查询用户-->
+    <select id="findByMultiConditions" resultMap="registerMapper" >
+        select phone, account, password, gender, email, level, score
+        from `register`
+        <where>
+            <if test="account != null and account != ''">
+                and account= #{account}
+            </if>
+            <if test="phone != null and phone != ''">
+                and phone= #{phone}
+            </if>
+        </where>
+    </select>
+
+
+    <!--    以下为朱炫帆所写的正确率极高的bug-->
+    <!--     注册会员-->
+    <insert id="insertRegister" parameterType="register">
+        insert
+        into `register` (phone,account,password,gender,email,level,score)
+                 values (#{phone},#{account},#{password},#{gender},#{email},1,0)
+    </insert>
+
+    <!--    通过手机号、等级、账户名 查询用户信息-->
+    <select id="findByMultiConditions_Another"  resultMap="registerMapper">
+        select *
+        from `register`
+        <where>
+
+            <if test="phone != null and phone != ''">
+                and phone = #{phone}
+            </if>
+            <if test="account != null and account != ''">
+                and account = #{account}
+            </if>
+            <if test="level != null and level != ''">
+                and level = #{level}
+            </if>
+        </where>
+    </select>
+
     <!--    通过订单号查询会员-->
     <select id="findByOrderID" parameterType="int" resultMap="registerMapper">
         select
@@ -88,3 +114,4 @@
         </where>
     </select>
 </mapper>
+

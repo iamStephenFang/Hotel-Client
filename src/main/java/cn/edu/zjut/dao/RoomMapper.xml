@@ -2,40 +2,66 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.zjut.dao.RoomMapper">
 
-    <resultMap type="room" id="roomMapper">
-        <id column="roomID" property="roomID"/>
-        <result column="roomType" property="roomType"/>
-        <result column="roomDetail" property="roomDetail"/>
-        <result column="roomStatus" property="roomStatus"/>
+    <resultMap id="roomMapper" type="room">
+        <result property="roomId" column="roomID"/>
+        <result property="roomStatus" column="roomStatus"/>
+        <result property="roomDetail" column="roomDetail"/>
+        <association property="roomType" javaType="roomType">
+            <id property="type" column="type"/>
+        </association>
     </resultMap>
 
-    <select id="findByRoomID" resultMap="roomMapper" parameterType="String">
-        select *
-        from `room`
-        where roomID=#{roomID}
+    <select id="findByRoomId" resultMap="roomMapper" parameterType="string">
+        select roomID, t.type, roomDetail, roomStatus
+        from `room` o, `room_type` t
+        where roomID=#{roomId} and o.roomType = t.type
     </select>
 
     <select id="findAllRooms" resultMap="roomMapper">
-        select *
-        from `room`
+        select roomID, t.type, roomDetail, roomStatus
+        from `room` o, `room_type` t
+        where o.roomType = t.type
     </select>
 
     <update id="updateRoom" parameterType="room">
         update `room`
-        set roomType = #{roomType},
+        set roomType = #{roomType.type},
             roomDetail = #{roomDetail},
             roomStatus = #{roomStatus}
-        where roomID= #{roomID}
+        where roomID= #{roomId}
     </update>
 
     <insert id="insertRoom" parameterType="room">
         insert
         into `room`(roomID, roomType, roomDetail, roomStatus)
-            value (#{roomID}, #{roomType},#{roomDetail},#{roomStatus})
+            value (#{roomId}, #{roomType.type},#{roomDetail},#{roomStatus})
     </insert>
 
     <delete id="deleteRoom" parameterType="room">
         delete from `room`
-        where roomID = #{roomID}
+        where roomID = #{roomId}
     </delete>
+
+    <!--    按房间号 / 房间类型 查询房间-->
+    <select id="findByMultiConditions" resultMap="roomMapper" >
+        select roomID, t.type, roomDetail, roomStatus
+        from `room` o, `room_type` t
+        <where>
+            <if test="roomId != null and roomId != ''">
+                and roomId = #{roomId}
+            </if>
+            <if test="type != null and type != ''">
+                and o.roomType = #{type}
+            </if>
+                and  o.roomType = t.type
+        </where>
+    </select>
+
+<!--    以下为朱炫帆所写的正确率极高的bug-->
+<!--    按 房间类型 查询 房间数量-->
+    <select id="findRoomNumByType" resultType="int" >
+        select count(roomID)
+        from `room`
+        where roomType=#{roomType}
+    </select>
 </mapper>

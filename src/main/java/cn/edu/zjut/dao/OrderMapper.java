@@ -42,6 +42,8 @@ public interface OrderMapper {
      */
     int updateOrder(Order order);
 
+//    以下为朱炫帆写的正确率极高的bug
+
     /**
      * @author 朱炫帆
      * @param order 订单
@@ -52,17 +54,19 @@ public interface OrderMapper {
 
     /**
      * @author 朱炫帆
-     * @param order 订单
+     * @param roomId 订单号
      * @return int
      * 删除订单
      */
-    int deleteOrder(Order order);
+    int deleteOrder (@Param("roomId")String roomId);
 
     /**
      * @author 朱炫帆
-     * @param order 订单
-     * @return int
-     * 删除订单
+     * @param roomType     房间类型（查询
+     * @param checkInTime  入住时间（查询
+     * @param leaveTime    离开时间（查询
+     * @return List
+     * 查（非）（空）房
      */
     List<Order> findNonemptyRoom(@Param("roomType") String roomType, @Param("checkInTime")Date checkInTime, @Param("leaveTime")Date leaveTime);
 }
