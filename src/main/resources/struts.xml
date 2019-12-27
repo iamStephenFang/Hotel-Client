@@ -5,18 +5,19 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+    <constant name="struts.multipart.saveDir" value="/tmp"/>
+    <constant name="struts.multipart.maxSize" value="5000000"/>
     <package name="hotel" extends="struts-default" namespace="/">
 <!--&lt;!&ndash;        生成验证码&ndash;&gt;-->
 <!--        <action name="authGenerate" class="authCodeAction" method="authGenerate">-->
 <!--            <result name="GeneratedSuccess">/backend_login.jsp</result>-->
 <!--            <result name="GeneratedFail">/404.jsp</result>-->
 <!--        </action>-->
-<!--&lt;!&ndash;        服务员和管理员登录&ndash;&gt;-->
-<!--        <action name="login" class="loginAction" method="login">-->
-<!--            <result name="waiterLoginSuccess">/check_in.jsp</result>-->
-<!--            <result name="adminLoginSuccess">/backend_login.jsp</result>-->
-<!--            <result name="LoginFail" type="chain">authGenerate</result>-->
-<!--        </action>-->
+<!--        注册用户登录-->
+        <action name="login" class="cn.edu.zjut.action.LoginAction" method="login">
+            <result name="loginSuccess">/index.html</result>
+            <result name="loginFail">/sign_in.html</result>
+        </action>
 <!--&lt;!&ndash;        订单操作 —— 查询所有订单&ndash;&gt;-->
 <!--        <action name="listAllOrders" class="orderAction" method="listAll">-->
 <!--            <result name="findAllSuccess">/search_order.jsp</result>-->

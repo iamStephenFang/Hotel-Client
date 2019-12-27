@@ -56,34 +56,70 @@ public class RegisterService implements IRegisterService {
         }
     }
 
+//    /**
+//     * @author 方宣淼
+//     * @return boolean
+//     * 通过Phone查询Register账户
+//     */
+//    @Override
+//    public boolean findByPhone(String phone) {
+//        System.out.println("正在执行findByPhone方法...");
+//        ActionContext context = ActionContext.getContext();
+//        request = (Map<String, String>) context.get("request");
+//        List<Register> registers = new ArrayList<Register>();
+//        try {
+//            Register register = registerMapper.findByPhone(phone);
+//            if (register == null){
+//                System.out.println("未找到注册用户...");
+//                return false;
+//            }
+//            else {
+//                System.out.println(register);
+//                System.out.println("找到注册用户...");
+//                request.put("registers",register);
+//                return true;
+//            }
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            return false;
+//        }
+//    }
+
+
     /**
      * @author 方宣淼
      * @return boolean
-     * 通过Phone查询Register账户
+     * 通过 waiter id 查询
      */
     @Override
-    public boolean findByPhone(String phone) {
-        System.out.println("正在执行findByPhone方法...");
+    public Register findByPhone(Register register){
+        System.out.println("正在执行RegisterService的login方法...");
         ActionContext context = ActionContext.getContext();
+        session = context.getSession();
         request = (Map<String, String>) context.get("request");
-        List<Register> registers = new ArrayList<Register>();
         try {
-            Register register = registerMapper.findByPhone(phone);
-            if (register == null){
-                System.out.println("未找到注册用户...");
-                return false;
+            Register instance = registerMapper.findByPhone(register.getPhone());
+            if (instance == null){
+                request.put("tip","用户不存在");
+                System.out.println("查无此人...");
+                return null;
+            }
+            if (instance.getPassword().equals(register.getPassword())) {
+                session.put("register",instance);
+                System.out.println("查找注册用户信息成功...");
+                return instance;
             }
             else {
-                System.out.println(register);
-                System.out.println("找到注册用户...");
-                request.put("registers",register);
-                return true;
+                request.put("tip","密码错误");
+                System.out.println("密码错误...");
+                return null;
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
+
 
     /**
      * @author 方宣淼

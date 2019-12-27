@@ -1,0 +1,1020 @@
+@font-face {
+    font-family: 'Haas Grot Text R Web';
+    src: url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-55Roman-Web-918d6c0071910d16c58bb45eeb08e87598b004241f36359a15adc8eec053d0dc.eot);
+    src: url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-55Roman-Web-918d6c0071910d16c58bb45eeb08e87598b004241f36359a15adc8eec053d0dc.eot?#iefix) format("embedded-opentype"), url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-55Roman-Web-401f96309459eb9bd83fcda072bff4dfa929fd4ef142c0df652a5bede195e5a7.woff2) format("woff2"), url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-55Roman-Web-37cd8a0236ba65d8961c5e2b4d10a61e9e6e9843efa02240b1f562c9c808207b.woff) format("woff");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Haas Grot Text R Web';
+    src: url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-56Italic-Web-a816d6aa0561e3421491af3c54c91421e5f693e5a8d466e68040796e6d0c2cfe.eot);
+    src: url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-56Italic-Web-a816d6aa0561e3421491af3c54c91421e5f693e5a8d466e68040796e6d0c2cfe.eot?#iefix) format("embedded-opentype"), url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-56Italic-Web-de751209eb1210fafdcd81ab89c6da907f45ef6160ab760909f61190cea9c883.woff2) format("woff2"), url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-56Italic-Web-cdf6bce3e1accdcfc7dd0d4867d447a7e9451818dad4ab847c4e2a5536f85e92.woff) format("woff");
+    font-weight: 400;
+    font-style: italic
+}
+
+@font-face {
+    font-family: 'Haas Grot Text R Web';
+    src: url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-65Medium-Web-1ae031fb1d7fb3df85a0b111d606b9065c060e6bb24b22aa9e0dff183ed5d40e.eot);
+    src: url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-65Medium-Web-1ae031fb1d7fb3df85a0b111d606b9065c060e6bb24b22aa9e0dff183ed5d40e.eot?#iefix) format("embedded-opentype"), url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-65Medium-Web-9cf73610561494e7bba813a7ed9efa63742f3d33fcf58e88f77e0907bc939183.woff2) format("woff2"), url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-65Medium-Web-ccd2b5248c80c84d54bf98bea057c951780ac2cc54f7dd3125c2ed69a627ca53.woff) format("woff");
+    font-weight: 500;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Haas Grot Text R Web';
+    src: url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-66MediumItalic-Web-fa803aedf617d94d33b7075d6598fbefe20adbd892b4a3a7c9d2441b73dfb5e3.eot);
+    src: url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-66MediumItalic-Web-fa803aedf617d94d33b7075d6598fbefe20adbd892b4a3a7c9d2441b73dfb5e3.eot?#iefix) format("embedded-opentype"), url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-66MediumItalic-Web-0bd975574e9a8f42f8f80f4147866aaf31ab8e85ee9d7ef5c113a09c3f3d213b.woff2) format("woff2"), url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-66MediumItalic-Web-759bb2f913397bf0555dcd3b9358f9f590d72a9a6a4c559e1ecfa6b82c495985.woff) format("woff");
+    font-weight: 500;
+    font-style: italic
+}
+
+@font-face {
+    font-family: 'Haas Grot Text R Web';
+    src: url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-75Bold-Web-20d52793243203ada9917ef93e3622daf288b3bd9ffa443b0f25a233deb1db18.eot);
+    src: url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-75Bold-Web-20d52793243203ada9917ef93e3622daf288b3bd9ffa443b0f25a233deb1db18.eot?#iefix) format("embedded-opentype"), url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-75Bold-Web-ecc4fb361ce623ac5b3f2ed2c9037ddbc32209d8efbeabb8ceeb3ea42c986f3c.woff2) format("woff2"), url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-75Bold-Web-f7dfad76779331e9c944577abefd024d6c09af22edafb4793c85d4504f71a327.woff) format("woff");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Haas Grot Text R Web';
+    src: url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-76BoldItalic-Web-ab633a797b50dc442043b40fa8805d699ab3d05cbcb155347e39d8a180d07cf0.eot);
+    src: url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-76BoldItalic-Web-ab633a797b50dc442043b40fa8805d699ab3d05cbcb155347e39d8a180d07cf0.eot?#iefix) format("embedded-opentype"), url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-76BoldItalic-Web-0f2e8b048db32202420019439b776407a03741eb8e6b11d518fe866eb191e505.woff2) format("woff2"), url(/assets/neue-haas-grotesk/NeueHaasGrotTextRound-76BoldItalic-Web-316aeff3eef7876a1249007eaba33421fedec782bd66fa1beecab63fa7a615ec.woff) format("woff");
+    font-weight: 700;
+    font-style: italic
+}
+
+input[type="checkbox"] {
+    display: none;
+    margin: 0;
+    padding: 0
+}
+
+input[type="checkbox"]+label {
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap
+}
+
+input[type="checkbox"]+label:before {
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    content: '';
+    display: inline-block;
+    height: 16px;
+    margin-right: 10px;
+    -webkit-transition: 0.2s linear;
+    transition: 0.2s linear;
+    width: 16px
+}
+
+input[type="checkbox"]+label:hover,
+input[type="checkbox"]+label:focus {
+    cursor: pointer
+}
+
+input[type="checkbox"] {
+    display: none;
+    margin: 0;
+    padding: 0
+}
+
+input[type="checkbox"]+label {
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    font-weight: normal;
+    font-size: 14px;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%
+}
+
+input[type="checkbox"]+label:before {
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    content: "";
+    display: inline-block;
+    height: 16px;
+    margin-right: 10px;
+    -webkit-transition: 0.2s linear;
+    transition: 0.2s linear;
+    width: 16px
+}
+
+input[type="checkbox"]+label:hover,
+input[type="checkbox"]+label:focus {
+    cursor: pointer
+}
+
+.dd-toggle .dd-toggle-control {
+    -webkit-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+    width: 50px;
+    height: 30px;
+    display: block;
+    border-radius: 20px;
+    background-color: #bbbbbb;
+    position: relative
+}
+
+.dd-toggle .dd-toggle-control:hover,
+.dd-toggle .dd-toggle-control:focus {
+    cursor: pointer;
+    -webkit-filter: brightness(105%);
+    filter: brightness(105%)
+}
+
+.dd-toggle .dd-toggle-control:after {
+    -webkit-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px
+}
+
+.dd-toggle input {
+    display: none
+}
+
+.dd-toggle input:checked+.dd-toggle-control {
+    background-color: #ea4c89
+}
+
+.dd-toggle input:checked+.dd-toggle-control:after {
+    left: 25px
+}
+
+.dd-toggle-group {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.dd-toggle-group .dd-label {
+    margin: 0 10px 0 0
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dd,
+dl,
+dt,
+li,
+ol,
+ul,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+    border: 0;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline
+}
+
+a img,
+:link img,
+:visited img {
+    border: 0
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+ol,
+ul {
+    list-style: none
+}
+
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+    content: ""
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 62.5%;
+    color: #444;
+    background: #fff;
+    padding: 0;
+    margin: 0
+}
+
+a {
+    color: #3a8bbb;
+    text-decoration: none
+}
+
+a:hover {
+    color: #1e6189
+}
+
+a:active {
+    color: #0c3f5d
+}
+
+div.auth {
+    text-align: center
+}
+
+h1 {
+    font: bold 32px/38px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+h2 {
+    font: bold 24px/29px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 26px
+}
+
+h3 {
+    margin: 20px 0 10px 0;
+    padding: 20px 0 0 0;
+    font: normal 1.4em "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: left;
+    color: #fff;
+    border-top: 1px solid rgba(255, 255, 255, 0.1)
+}
+
+h3.or {
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-weight: normal;
+    text-transform: none;
+    border-top: none;
+    color: #999
+}
+
+h4 {
+    margin: 20px 0 10px 0;
+    padding: 20px 0 0 0;
+    font: normal 1.8em "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.4;
+    font-weight: normal;
+    text-align: left;
+    color: #fff;
+    border-top: 1px solid rgba(255, 255, 255, 0.1)
+}
+
+h4 strong {
+    font-weight: bold
+}
+
+hr.divider {
+    overflow: visible;
+    padding: 0;
+    margin-bottom: 20px;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    color: #757575;
+    text-align: center
+}
+
+hr.divider:after {
+    content: "Or";
+    display: inline-block;
+    position: relative;
+    top: -7px;
+    font: normal 14px/14px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 0 16px;
+    background: white
+}
+
+span.handle {
+    margin: 0 2px;
+    padding: 2px 4px;
+    font-size: 1em;
+    font-weight: normal;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px
+}
+
+.auth-connections {
+    margin: 0 0 40px;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.auth-connections a.auth-google {
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    position: relative;
+    padding-left: 32px
+}
+
+.auth-connections a.auth-google svg {
+    position: absolute;
+    top: 18px;
+    left: 12px;
+    height: 14px;
+    width: 14px
+}
+
+@media (min-width: 400px) {
+    .auth-connections a.auth-google svg {
+        top: 19px;
+        left: 15px;
+        height: 16px;
+        width: 16px
+    }
+}
+
+.auth-connections a.auth-twitter,
+.auth-connections a.auth-facebook {
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    margin-left: 10px;
+    color: #757575
+}
+
+@media (min-width: 400px) {
+    .auth-connections a.auth-twitter,
+    .auth-connections a.auth-facebook {
+        margin-left: 16px
+    }
+}
+
+.auth-twitter,
+.auth-facebook,
+.auth-google,
+a.auth-twitter,
+a.auth-facebook,
+a.auth-google {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 14px;
+    font: bold 13px/16px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-align: center
+}
+
+@media (min-width: 400px) {
+    .auth-twitter,
+    .auth-facebook,
+    .auth-google,
+    a.auth-twitter,
+    a.auth-facebook,
+    a.auth-google {
+        padding: 16px
+    }
+}
+
+.auth-twitter svg,
+.auth-facebook svg,
+.auth-google svg,
+a.auth-twitter svg,
+a.auth-facebook svg,
+a.auth-google svg {
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+    margin-top: -3px;
+    fill: currentColor
+}
+
+.auth-facebook,
+a.auth-facebook {
+    background-color: #f2f2f2
+}
+
+.auth-facebook:hover,
+a.auth-facebook:hover {
+    background-color: #e5e5e5
+}
+
+.auth-facebook:active,
+a.auth-facebook:active {
+    background-color: #dedede
+}
+
+.auth-twitter,
+a.auth-twitter {
+    background-color: #f2f2f2
+}
+
+.auth-twitter:hover,
+a.auth-twitter:hover {
+    background-color: #e5e5e5
+}
+
+.auth-twitter:active,
+a.auth-twitter:active {
+    background-color: #d9d9d9
+}
+
+.auth-google,
+a.auth-google {
+    background-color: #3988f2
+}
+
+.auth-google:hover,
+a.auth-google:hover {
+    background-color: #217af0
+}
+
+.auth-google:active,
+a.auth-google:active {
+    background-color: #1371ef
+}
+
+div.sign-connections-full a.alt-link {
+    display: block;
+    margin: 12px 0 0 0;
+    font-size: 1.2em
+}
+
+form fieldset {
+    margin: 0 0 12px 0
+}
+
+label {
+    display: block;
+    font: bold 15px/24px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0 0 4px 0;
+    color: #444
+}
+
+input[type="checkbox"]+label {
+    display: block
+}
+
+.opt-in label {
+    font: normal 14px/18px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #757575;
+    margin: 11px 0 0;
+    position: relative;
+    padding-left: 26px
+}
+
+.opt-in label:before {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+label.password a {
+    font-weight: normal;
+    float: right;
+    position: relative;
+    top: 6px;
+    font-size: 14px
+}
+
+input[type="checkbox"]:checked+label:before {
+    background: #3a8bbb url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAuNjQwMiAyLjIzNjQ4QzEwLjIxNjIgMS44NzU5OCA5LjU4NTcgMS45MzQ0OCA5LjIzMTcgMi4zNjc0OEw0LjgwNzIgNy43ODQ5OEwyLjU1NTIgNi4yNTI5OEMyLjA5NjIgNS45Mzk5OCAxLjQ3NDcgNi4wNjY5OCAxLjE2ODcgNi41MzU5OEMwLjg2MjcwMSA3LjAwNDk4IDAuOTg2NzAxIDcuNjM4NDggMS40NDYyIDcuOTUwOThMNS4xOTMyIDEwLjVMMTAuNzY4NyAzLjY3MzQ4QzExLjEyMjIgMy4yNDA0OCAxMS4wNjQ3IDIuNTk3NDggMTAuNjQwMiAyLjIzNjQ4WiIgZmlsbD0id2hpdGUiLz48L3N2Zz4=");
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-transition: none;
+    transition: none
+}
+
+input[type="checkbox"]+label:before {
+    border-radius: 2px
+}
+
+input[type="checkbox"]:checked+label:before {
+    border: 1px solid #3a8bbb
+}
+
+input.text-input {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 6px;
+    font: 16px/22px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 9px 15px;
+    margin-right: 8px;
+    background: #f5f6f7;
+    color: #444;
+    -webkit-box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.03);
+    box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.03);
+    outline: none
+}
+
+input.button {
+    display: block;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font: bold 13px/16px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /* background: #FF6F61; */
+    background: #4169E1;
+    border-radius: 4px;
+    border: none;
+    padding: 12px;
+    margin-top: 22px;
+    color: #fff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none
+}
+
+@media (min-width: 960px) {
+    input.button {
+        max-width: 200px
+    }
+}
+
+input.button:hover,
+input.button:focus {
+    text-decoration: none;
+    background-color: #df3e7b
+}
+
+input.button:active,
+a.form-sub:active {
+    text-decoration: none;
+    background-color: #c22b65
+}
+
+p {
+    font: normal 14px/20px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    margin: 20px 0 0 0
+}
+
+p.message {
+    margin: 2px 0 0 0
+}
+
+p.alt-link {
+    float: left;
+    margin: 10px 0 0 10px
+}
+
+@media (min-width: 400px) {
+    div.form-field-group {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: justify;
+        justify-content: space-between
+    }
+    div.form-field-group .form-field {
+        width: 48%
+    }
+}
+
+form .errorExplanation {
+    margin: 15px 0;
+    font-size: 1.4em;
+    line-height: 1.5;
+    font-weight: normal;
+    text-align: left;
+    color: #f55;
+    background: #fff
+}
+
+.errorExplanation h2 {
+    padding: 10px 0;
+    font-size: 1.4em;
+    line-height: 1;
+    color: #f55;
+    display: none
+}
+
+.errorExplanation ul {
+    padding: 0
+}
+
+.errorExplanation ul li {
+    margin: 0 0 5px 20px;
+    list-style: disc
+}
+
+fieldset.fieldWithErrors {
+    background: #fff url(/images/icon-error.png) no-repeat 20px 50%
+}
+
+div.notice {
+    padding: 15px;
+    font-size: 14em;
+    font-weight: normal;
+    text-align: left;
+    color: #fff;
+    background: #f55
+}
+
+div.notice h2 {
+    max-width: 940px;
+    margin: 0 auto;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.3;
+    text-align: center
+}
+
+div.notice a:link,
+div.notice a:visited {
+    color: #fff;
+    text-decoration: underline
+}
+
+div.error {
+    background-color: #f55
+}
+
+div.info {
+    background-color: #3a8bbb
+}
+
+div.success {
+    background-color: #7bbb5e
+}
+
+@media (min-width: 960px) {
+    #main-container {
+        height: 100%;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        overflow: hidden
+    }
+}
+
+.auth-sidebar {
+    position: relative;
+    color: #000
+}
+
+@media (min-width: 960px) {
+    .auth-sidebar {
+        width: 450px;
+        -ms-flex-positive: 0;
+        flex-grow: 0
+    }
+    .sign-in .auth-sidebar,
+    .forgot-password .auth-sidebar,
+    .reset-password .auth-sidebar {
+        background: #f1cdd7;
+        color: #865c6c
+    }
+    .sign-up .auth-sidebar {
+        background: #f2d184;
+        color: #866118
+    }
+}
+
+@media (min-width: 1100px) {
+    .auth-sidebar {
+        width: 514px
+    }
+}
+
+@media (min-width: 960px) {
+    .auth-sidebar .auth-sidebar-content {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        height: 100%
+    }
+}
+
+.auth-sidebar a {
+    color: inherit;
+    text-decoration: underline
+}
+
+.auth-sidebar header {
+    margin: 0 auto;
+    max-width: 416px;
+    padding: 48px 20px 0;
+    text-align: left
+}
+
+@media (min-width: 960px) {
+    .auth-sidebar header {
+        max-width: 100%;
+        margin: 0;
+        padding: 40px 40px 30px 40px
+    }
+}
+
+@media (min-width: 1100px) {
+    .auth-sidebar header {
+        padding: 64px 64px 30px 64px
+    }
+}
+
+.auth-sidebar header .logo {
+    display: block;
+    margin-bottom: 30px
+}
+
+@media (min-width: 960px) {
+    .auth-sidebar header .logo {
+        opacity: 0.7
+    }
+    .auth-sidebar header .logo:hover {
+        opacity: 0.9
+    }
+}
+
+.auth-sidebar header .dribbble-logo {
+    fill: currentColor;
+    color: inherit;
+    width: 90px;
+    height: auto
+}
+
+.auth-sidebar header h1 {
+    color: inherit;
+    display: none;
+    font: bold 32px/38px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+@media (min-width: 960px) {
+    .auth-sidebar header h1 {
+        display: block;
+        padding-right: 30px;
+        padding-top: 360px;
+    }
+}
+
+@media (max-height: 850px) {
+    .auth-sidebar header h1 {
+        font-size: 25px;
+        line-height: 30px
+    }
+}
+
+.auth-sidebar .artwork {
+    display: none
+}
+
+@media (min-width: 960px) {
+    .auth-sidebar .artwork {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        -ms-flex-positive: 1;
+        flex-grow: 1
+    }
+}
+
+.auth-sidebar .artwork .artwork-image {
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover
+}
+
+@media (max-width: 961px),
+(max-height: 730px) {
+    .auth-sidebar .artwork .artwork-image {
+        display: none
+    }
+}
+
+@media (min-height: 960px) {
+    .auth-sidebar .artwork .artwork-image {
+        max-height: 70%
+    }
+}
+
+.sign-in .auth-sidebar .artwork .artwork-image,
+.forgot-password .auth-sidebar .artwork .artwork-image,
+.reset-password .auth-sidebar .artwork .artwork-image {
+    background-image: url(/assets/auth/sign-in-7f12931973b5084193f451b94afa5058ef6ffd9c31e00b29d448e903b733d5f8.jpg)
+}
+
+.sign-up .auth-sidebar .artwork .artwork-image {
+    background-image: url(/assets/auth/sign-up-309e26707e1a09e0f27bdf7854df9e3dbdc45d4bbf99ef0d75dc2f3a3a0b4164.png)
+}
+
+.auth-sidebar .artwork .artwork-attribution {
+    font-size: 14px;
+    line-height: 14px;
+    color: inherit;
+    padding: 25px 64px 35px;
+    margin: 0
+}
+
+@media (max-width: 961px),
+(max-height: 730px) {
+    .auth-sidebar .artwork .artwork-attribution {
+        display: none
+    }
+}
+
+.content {
+    width: 100%
+}
+
+@media (min-width: 960px) {
+    .content {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex: 1;
+        flex: 1;
+        overflow: auto
+    }
+}
+
+.auth-nav {
+    display: none;
+    position: relative
+}
+
+@media (min-width: 960px) {
+    .auth-nav {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-positive: 0;
+        flex-grow: 0;
+        padding: 30px 30px 0 30px
+    }
+    .auth-nav p {
+        margin: 0;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        text-align: right
+    }
+    .auth-nav .back-link {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-item-align: start;
+        align-self: flex-start;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid #e0e0e0;
+        color: #757575
+    }
+    .auth-nav .back-link:hover {
+        border-color: #ddd;
+        color: #444
+    }
+    .auth-nav .back-link svg {
+        width: 16px;
+        height: auto;
+        fill: currentColor
+    }
+}
+
+main {
+    margin: 0 auto;
+    padding: 0 20px
+}
+
+@media (min-width: 960px) {
+    main {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        margin: 0;
+        padding: 0
+    }
+}
+
+.auth-content {
+    width: 100%;
+    max-width: 416px;
+    margin: auto
+}
+
+@media (min-width: 960px) {
+    .auth-content {
+        padding: 30px 60px 0;
+        margin: 0
+    }
+}
+
+.auth-link-mobile {
+    text-align: center
+}
+
+@media (min-width: 960px) {
+    .auth-link-mobile {
+        display: none
+    }
+}
+
+.grecaptcha-badge {
+    visibility: hidden;
+    border: 1px solid red
+}
+
+.recaptcha-terms {
+    font: normal 11px/16px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    max-width: 300px;
+    color: #999
+}
+
+.password-instructions {
+    margin-bottom: 26px
+}
+
+.hide {
+    display: none
+}

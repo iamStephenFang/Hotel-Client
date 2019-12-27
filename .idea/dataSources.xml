@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="jdbc:mysql://106.12.55.87:3306/hotel_management?serverTimezone=Asia/Shanghai" uuid="5a2bdfc2-a687-4d51-b298-8a70689a70d9">
+    <data-source source="LOCAL" name="BaiduCloud" uuid="5a2bdfc2-a687-4d51-b298-8a70689a70d9">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>

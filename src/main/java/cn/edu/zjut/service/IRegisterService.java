@@ -4,8 +4,9 @@ import cn.edu.zjut.po.Register;
 
 public interface IRegisterService {
     boolean findAllRegisters();
-    boolean findByPhone(String phone);
+//    boolean findByPhone(String phone);
     boolean updateRegister(Register register);
     boolean findByMultiConditions(String account, String phone);
     boolean insertRegister(Register register);
+    Register findByPhone(Register register);
 }
