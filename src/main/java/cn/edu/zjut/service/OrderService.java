@@ -1,11 +1,9 @@
 package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.OrderMapper;
-import cn.edu.zjut.dao.RegisterMapper;
 import cn.edu.zjut.dao.RoomMapper;
 import cn.edu.zjut.po.Order;
 import cn.edu.zjut.po.OrderExtendsRegister;
-import cn.edu.zjut.po.Register;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -242,8 +240,10 @@ public class OrderService implements IOrderService {
                 return false;
             }
             else {
-                System.out.println(orders);
                 System.out.println("找到订单...");
+                for (Order order: orders){
+                    System.out.println(order);
+                }
                 request.put("orders",orders);
                 return true;
             }

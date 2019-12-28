@@ -14,9 +14,7 @@ import java.util.Date;
 @Controller
 @Scope("prototype")
 public class OrderAction {
-
     private Register register;
-
     private Order order;
     private String roomType;
     private Date checkInTime;
@@ -29,6 +27,9 @@ public class OrderAction {
     public Order getOrder() {
         return order;
     }
+
+    public Register getRegister() { return register; }
+    public void setRegister(Register register) { this.register = register; }
 
     public void setRoomType(String roomType) {
         this.roomType=roomType;
