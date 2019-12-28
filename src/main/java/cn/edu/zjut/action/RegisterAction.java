@@ -29,15 +29,27 @@ public class RegisterAction {
         return registerService;
     }
 
-//    /**
-//     * @author 朱炫帆
-//     * @return String
-//     * 用户注册
-//     */
-//    public String insertOrder() {
-//        if (registerService.insertOrder(order))
-//            return "updateOrderSuccess";
-//        else
-//            return "updateOrderFail";
-//    }
+    /**
+     * @author 朱炫帆
+     * @return String
+     * 用户注册
+     */
+    public String insertRegister() {
+        if (registerService.insertRegister(register))
+            return "insertRegisterSuccess";
+        else
+            return "insertRegisterFail";
+    }
+
+    /**
+     * @author 朱炫帆
+     * @return String
+     * 更改用户信息
+     */
+    public String updateRegister(){
+        if(registerService.updateRegister(register))
+            return "updateRegisterSuccess";
+        else
+            return "updateRegisterFail";
+    }
 }

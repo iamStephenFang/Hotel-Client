@@ -115,10 +115,10 @@ public class OrderAction {
      */
     public String getRestRoomNum(){
         if (orderService.restRoomNum(roomType,checkInTime,leaveTime)>=0){
-            return "findByMultiConditionsSuccess";
+            return "getRestRoomNumSuccess";
         }
         else {
-            return "findByMultiConditionsFail";
+            return "getRestRoomNumFail";
         }
     }
 
