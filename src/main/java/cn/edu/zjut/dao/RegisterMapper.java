@@ -40,7 +40,6 @@ public interface RegisterMapper {
      */
     List<Register> findByMultiConditions(@Param("account") String account, @Param("phone") String phone);
 
-
     //以下为朱炫帆所写的正确率极高的bug
 
     /**

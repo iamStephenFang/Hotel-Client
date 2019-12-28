@@ -58,7 +58,7 @@ public interface OrderMapper {
      * @return int
      * 删除订单
      */
-    int deleteOrder (@Param("roomId")String roomId);
+    int deleteOrder (@Param("roomId")int roomId);
 
     /**
      * @author 朱炫帆

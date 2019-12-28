@@ -11,5 +11,5 @@ public interface IOrderService {
     boolean updateOrder(Order order);
     int restRoomNum(String roomType, Date checkInTime , Date leaveTime);
     boolean insertOrder(Order order);
-    boolean deleteOrder(String roomId);
+    boolean deleteOrder(int roomId);
 }

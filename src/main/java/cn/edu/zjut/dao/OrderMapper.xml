@@ -92,7 +92,7 @@
     </insert>
 
 <!--    取消订单-->
-    <delete id="deleteOrder" parameterType="String">
+    <delete id="deleteOrder" parameterType="int">
         delete
         from `order`
         where orderId=#{orderId}

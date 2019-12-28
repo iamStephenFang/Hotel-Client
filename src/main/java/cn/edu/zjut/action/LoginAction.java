@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import java.util.Map;
+
 @Controller
 @Scope("prototype")
 public class LoginAction {
@@ -17,7 +19,6 @@ public class LoginAction {
     public void setPassword(String password) {
         this.password = password;
     }
-
     public String getPassword() {
         return password;
     }

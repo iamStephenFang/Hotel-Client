@@ -142,12 +142,11 @@ public class OrderService implements IOrderService {
     @Override
     public int restRoomNum(String roomType, Date checkInTime ,Date leaveTime) {
         System.out.println("正在findNonemptyRoom方法...");
-        //这个干嘛用的？
+
         ActionContext context = ActionContext.getContext();
         request = (Map<String, List>) context.get("request");
         List<Order> orders = new ArrayList<Order>();
 
-        //这儿判断空房？？？？？
         try {
             orders = orderMapper.findNonemptyRoom(roomType, checkInTime, leaveTime);
             int roomTypeNum = roomMapper.findRoomNumByType(roomType);
@@ -197,7 +196,7 @@ public class OrderService implements IOrderService {
     }
 
     @Override
-    public boolean deleteOrder(String roomId){
+    public boolean deleteOrder(int roomId){
         System.out.println("正在执行deleteOrder方法...");
         int colNum = orderMapper.deleteOrder(roomId);
         try {
