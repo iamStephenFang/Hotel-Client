@@ -1,3 +1,7 @@
 /target/
 /out/
 /.idea/
+.idea/compiler.xml
+.idea/misc.xml
+hotel-client.iml
+pom.xml
