@@ -54,11 +54,11 @@ public interface OrderMapper {
 
     /**
      * @author 朱炫帆
-     * @param roomId 订单号
+     * @param orderId 订单号
      * @return int
      * 删除订单
      */
-    int deleteOrder (@Param("roomId")int roomId);
+    int deleteOrder (@Param("orderId")int orderId);
 
     /**
      * @author 朱炫帆
@@ -69,4 +69,12 @@ public interface OrderMapper {
      * 查（非）（空）房
      */
     List<Order> findNonemptyRoom(@Param("roomType") String roomType, @Param("checkInTime")Date checkInTime, @Param("leaveTime")Date leaveTime);
+
+    /**
+     * @author 朱炫帆
+     * @param phone 手机号
+     * @return Order
+     * 通过手机号单条件搜索订单
+     */
+    List<Order> findOrderByPhone(String phone);
 }

@@ -8,8 +8,9 @@ public interface IOrderService {
     boolean findAllOrders();
     boolean findOrderById(int orderId);
     boolean findByMultiConditions(Integer id, String phone);
+    boolean findOrderByPhone(String phone);
     boolean updateOrder(Order order);
     int restRoomNum(String roomType, Date checkInTime , Date leaveTime);
     boolean insertOrder(Order order);
-    boolean deleteOrder(int roomId);
+    boolean deleteOrder(int orderId);
 }

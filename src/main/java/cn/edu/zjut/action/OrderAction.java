@@ -2,6 +2,7 @@ package cn.edu.zjut.action;
 
 import cn.edu.zjut.po.CheckCustomer;
 import cn.edu.zjut.po.Order;
+import cn.edu.zjut.po.Register;
 import cn.edu.zjut.service.IOrderService;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,9 @@ import java.util.Date;
 @Controller
 @Scope("prototype")
 public class OrderAction {
+
+    private Register register;
+
     private Order order;
     private String roomType;
     private Date checkInTime;
@@ -144,5 +148,17 @@ public class OrderAction {
             return "updateOrderSuccess";
         else
             return "updateOrderFail";
+    }
+
+    /**
+     * @author 朱炫帆
+     * @return String
+     * 按手机号查询订单
+     */
+    public String findOrderByPhone() {
+        if (orderService.findOrderByPhone(register.getPhone()))
+            return "findOrderByPhoneSuccess";
+        else
+            return "findOrderByPhoneFail";
     }
 }

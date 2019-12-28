@@ -108,4 +108,12 @@
                  (#{leaveTime}>=o.leaveTime and o.leaveTime >= #{checkInTime} )
              )
     </select>
+
+<!--    通过手机号单条件搜索订单-->
+    <select id="findOrderByPhone" parameterType="String" resultType="order">
+        select *
+        from `order`
+        where phone = #{phone}
+    </select>
+
 </mapper>

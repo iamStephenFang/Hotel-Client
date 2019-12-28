@@ -1,9 +1,11 @@
 package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.OrderMapper;
+import cn.edu.zjut.dao.RegisterMapper;
 import cn.edu.zjut.dao.RoomMapper;
 import cn.edu.zjut.po.Order;
 import cn.edu.zjut.po.OrderExtendsRegister;
+import cn.edu.zjut.po.Register;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -195,10 +197,16 @@ public class OrderService implements IOrderService {
         }
     }
 
+    /**
+     * @author 朱炫帆
+     * @param orderId 订单号
+     * @return boolean
+     * 通过订单号单条件搜索订单
+     */
     @Override
-    public boolean deleteOrder(int roomId){
+    public boolean deleteOrder(int orderId){
         System.out.println("正在执行deleteOrder方法...");
-        int colNum = orderMapper.deleteOrder(roomId);
+        int colNum = orderMapper.deleteOrder(orderId);
         try {
             if (colNum == 0){
                 System.out.println("删除订单信息失败...");
@@ -206,6 +214,37 @@ public class OrderService implements IOrderService {
             }
             else {
                 System.out.println("删除订单信息成功...");
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * @author 朱炫帆
+     * @param phone 手机号
+     * @return boolean
+     * 通过订单号单条件搜索订单
+     */
+
+    @Override
+    public boolean findOrderByPhone(String phone){
+        System.out.println("正在执行findOrderByPhone方法...");
+        ActionContext context = ActionContext.getContext();
+        request = (Map<String, List>)context.get("request");
+        List<Order> orders = new ArrayList<Order>();
+        try {
+            orders = orderMapper.findOrderByPhone(phone);
+            if (orders == null){
+                System.out.println("未找到订单...");
+                return false;
+            }
+            else {
+                System.out.println(orders);
+                System.out.println("找到订单...");
+                request.put("orders",orders);
                 return true;
             }
         }catch (Exception e){

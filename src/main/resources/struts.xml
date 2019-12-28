@@ -48,6 +48,11 @@
             <result name="insertOrderSuccess">XXXXXXXXXXXX</result>
             <result name="insertOrderFail">XXXXXXXXXXX</result>
         </action>
+<!--        按手机号查询订单     -->
+        <action name="findOrderByPhone" class="cn.edu.zjut.action.OrderAction" method="findOrderByPhone">
+            <result name="findOrderByPhoneSuccess">XXXXXXXXXXXX</result>
+            <result name="findOrderByPhoneFail">XXXXXXXXXXX</result>
+        </action>
 
         <!--&lt;!&ndash;        订单操作 —— 查询所有订单&ndash;&gt;-->
 <!--        <action name="listAllOrders" class="orderAction" method="listAll">-->
