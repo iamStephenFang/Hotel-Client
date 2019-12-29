@@ -59,7 +59,7 @@ public interface RegisterMapper {
      * 三个要素察觉（
      * P.S. 没用了，可以爬
      */
-    List<Register> findByMultiConditions_Another(@Param("account") String account, @Param("phone") String phone,@Param("level") String level);
+    List<Register> findByMultiConditions_Another(@Param("account") String account, @Param("phone") String phone, @Param("level") String level);
 
     /**
      * @author 朱炫帆

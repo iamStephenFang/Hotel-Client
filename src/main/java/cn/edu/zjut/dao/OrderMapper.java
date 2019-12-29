@@ -58,7 +58,7 @@ public interface OrderMapper {
      * @return int
      * 删除订单
      */
-    int deleteOrder (@Param("orderId")int orderId);
+    int deleteOrder(@Param("orderId") int orderId);
 
     /**
      * @author 朱炫帆
@@ -68,7 +68,7 @@ public interface OrderMapper {
      * @return List
      * 查（非）（空）房
      */
-    List<Order> findNonemptyRoom(@Param("roomType") String roomType, @Param("checkInTime")Date checkInTime, @Param("leaveTime")Date leaveTime);
+    List<Order> findNonemptyRoom(@Param("roomType") String roomType, @Param("checkInTime") Date checkInTime, @Param("leaveTime") Date leaveTime);
 
     /**
      * @author 朱炫帆

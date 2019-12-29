@@ -3,9 +3,9 @@
 <div class="topnav clearfix" id="topnav">
   <p class="sider-link">
     <a href="最新优惠.html">* 最新优惠</a>
-    <a href="客房预订.html">* 客房预订</a>
+    <a href="reservation.jsp">* 客房预订</a>
   </p>
-  <a href="index.html" class="logo"><img src="images/HAPE.png" alt=""/></a>
+  <a href="index.jsp" class="logo"><img src="images/HAPE.png" alt=""/></a>
   <div class="sider-nav">
     <ul class="clearfix">
       <li class="serach-toggle">

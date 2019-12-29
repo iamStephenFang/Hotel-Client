@@ -10,7 +10,7 @@ public interface IOrderService {
     boolean findByMultiConditions(Integer id, String phone);
     boolean findOrderByPhone(String phone);
     boolean updateOrder(Order order);
-    int restRoomNum(String roomType, Date checkInTime , Date leaveTime);
+    int restRoomNum(String roomType, Date checkInTime, Date leaveTime);
     boolean insertOrder(Order order);
     boolean deleteOrder(int orderId);
 }

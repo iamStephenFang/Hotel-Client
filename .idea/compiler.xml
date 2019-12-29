@@ -9,8 +9,8 @@
         <module name="hotel-client" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8">
-      <module name="hotel-client" target="1.8" />
+    <bytecodeTargetLevel target="11">
+      <module name="hotel-client" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

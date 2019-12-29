@@ -19,7 +19,7 @@
         <dd><a href="新闻咨询.html">行业新闻</a></dd>
       </dl>
     </li>
-    <li><a href="客房预订.html" class="list">客房预订 <i></i></a></li>
+    <li><a href="reservation.jsp" class="list">客房预订 <i></i></a></li>
     <li><a href="探索己庄.html" class="list">探索己庄 <i></i></a></li>
     <li><a href="畅游峨眉.html" class="list">畅游峨眉 <i></i></a></li>
     <li><a href="会员中心.html" class="list">会员中心 <i></i></a></li>

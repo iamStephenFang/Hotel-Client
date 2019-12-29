@@ -14,7 +14,7 @@
         <dd><a href="#">酒店新闻</a></dd>
       </dl>
       <dl>
-        <dt><a href="客房预订.html">客房预订</a></dt>
+        <dt><a href="reservation.jsp">客房预订</a></dt>
         <dd><a href="#">双床房</a></dd>
         <dd><a href="#">大床房</a></dd>
         <dd><a href="#">亲子套房</a></dd>
