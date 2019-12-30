@@ -17,7 +17,6 @@
 <%@include file="header.jsp" %>
 <!--中间部分-->
 
-
 <div class="middle">
     <div class="banner">
         <img src="images/20161291428114995.jpg" alt=""/>

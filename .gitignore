@@ -8,3 +8,6 @@ pom.xml
 .idea/compiler.xml
 .idea/misc.xml
 hotel-client.iml
+.idea/compiler.xml
+*.xml
+hotel-client.iml

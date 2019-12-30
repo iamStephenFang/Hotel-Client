@@ -157,6 +157,7 @@ public class OrderAction {
      * 按手机号查询订单
      */
     public String findOrderByPhone() {
+        register.setPhone("17681804955");
         if (orderService.findOrderByPhone(register.getPhone()))
             return "findOrderByPhoneSuccess";
         else

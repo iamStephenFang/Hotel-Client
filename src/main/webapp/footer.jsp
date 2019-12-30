@@ -36,10 +36,6 @@
         <div class="service-guide"><a href="服务指南.html">服务指南 <span></span></a></div>
         <p class="character"><a href="#">本《宾客服务指南》旨在向您提供实用信息，让您充分享受在度假酒店的美好时光。</a></p>
       </div>
-      <div class="promise">
-        <h3>全网最优价承诺</h3>
-        <span></span>
-      </div>
       <div class="knowmore">
         <h3>了解更多</h3>
         <div class="message clearfix">
