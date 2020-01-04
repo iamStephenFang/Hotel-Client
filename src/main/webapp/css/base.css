@@ -435,12 +435,10 @@ s, i, em {  /*一般是起装饰作用*/
 
     /*顶部导航结束*/
 
-
-
 /*底部开始*/
 
 .footer{
-    margin:0 40px 40px;
+    margin: 0 0px 0px;
     background: #313131;
     padding:55px 3% 35px;
     color:#969696;

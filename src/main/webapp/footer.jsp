@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!--底部-->
-<div class="footer clearfix">
+<div class="footer" style="margin: 0 0px 0px;">
   <div class="footer-top clearfix">
     <div class="footer-top-left fl">
       <dl>

@@ -17,6 +17,7 @@ public class OrderAction {
     private Register register;
     private Order order;
     private String roomType;
+    private String phone;
     private Date checkInTime;
     private Date leaveTime;
     private IOrderService orderService;
@@ -38,6 +39,9 @@ public class OrderAction {
         return roomType;
     }
 
+    public void setPhone(String phone) { this.phone = phone; }
+    public String getPhone() { return phone; }
+
     public void setCheckInTime(Date checkInTime) {
         this.checkInTime = checkInTime;
     }
@@ -48,7 +52,7 @@ public class OrderAction {
     public void setLeaveTime(Date leaveTime) {
         this.leaveTime = leaveTime;
     }
-    public Date leaveTime() {
+    public Date getLeaveTime() {
         return leaveTime;
     }
 
@@ -157,7 +161,6 @@ public class OrderAction {
      * 按手机号查询订单
      */
     public String findOrderByPhone() {
-        register.setPhone("17681804955");
         if (orderService.findOrderByPhone(register.getPhone()))
             return "findOrderByPhoneSuccess";
         else

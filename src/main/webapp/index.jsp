@@ -3,9 +3,8 @@
 <html>
 <head lang="en">
   <meta charset="UTF-8">
-  <title>己庄酒店官方网站</title>
+  <title>哈啤酒店</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" class="ico"/>
-  <!--<link rel="stylesheet" href="css/response.css"/>-->
   <link rel="stylesheet" href="css/base.css"/>
   <link rel="stylesheet" href="css/客房预订.css"/>
   <link rel="stylesheet" href="css/index.css"/>
@@ -33,8 +32,7 @@
                         </span>
           <p class="by1">注册会员</p>
           <p class="by2">享受服务</p>
-          <!-- <span class="jz-ico"></span>
-          <span class="jz-en"></span> -->
+
         </div>
         <p class="jz-zh">哈啤酒店</p>
       </div>
@@ -52,8 +50,7 @@
                         </span>
           <p class="by1">注册会员</p>
           <p class="by2">获得奖励</p>
-          <!-- <span class="jz-ico"></span>
-          <span class="jz-en"></span> -->
+
         </div>
         <p class="jz-zh">哈啤酒店</p>
       </div>
@@ -201,7 +198,7 @@
       </a>
     </li>
     <li class="second">
-      <a href="#">
+      <a href="sign_in.jsp">
         <i class="i4"></i>
       </a>
     </li>

@@ -4,9 +4,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
-  <title>
-    注册会员
-  </title>
+  <title>注册会员</title>
   <link rel="stylesheet" media="screen" href="css/login.css"/>
 </head>
 
@@ -30,44 +28,45 @@
   <section class="content">
     <nav class="auth-nav">
       <p class="auth-link">
-        已经注册? <a href="/session/new">登录</a>
+        已经注册? <a href="sign_in.jsp">登录</a>
       </p>
     </nav>
     <main>
       <div class="auth-content">
         <h2>注册成为会员</h2>
         <div class="auth-form signup-form">
-          <form class="hide-remove gen-form with-messages signup" id="new_user" action="*" accept-charset="UTF-8"
+          <form class="hide-remove gen-form with-messages signup" id="new_user" action="insertRegister.action" accept-charset="UTF-8"
                 method="post"><input name="utf8" type="hidden"/>
 
             <div class="form-field-group">
               <div class="form-field">
-                <fieldset class="user_name"><label for="user_name">手机号码</label><input autocomplete="name"
+                <fieldset class="user_name"><label for="register.phone">手机号码</label><input autocomplete="name"
                                                                                       class="text-input" type="text"
-                                                                                      name="user[name]" id="user_name"/>
+                                                                                      name="register.phone" id="register.phone"/>
                 </fieldset>
               </div>
 
               <div class="form-field">
-                <fieldset class="user_login"><label for="user_login">用户名</label><input autocorrect="off"
+                <fieldset class="user_login"><label for="register.account">用户名</label><input autocorrect="off"
                                                                                        autocapitalize="off"
                                                                                        autocomplete="username"
                                                                                        class="text-input" type="text"
-                                                                                       name="user[login]"
-                                                                                       id="user_login"/></fieldset>
+                                                                                       name="register.account"
+                                                                                       id="register.account"/></fieldset>
               </div>
             </div>
 
             <div class="form-field">
-              <fieldset class="user_email"><label for="user_email">电子邮箱</label><input class="text-input" type="text"
-                                                                                      name="user[email]"
-                                                                                      id="user_email"/></fieldset>
+              <fieldset class="user_email"><label for="register.email">电子邮箱</label><input class="text-input" type="text"
+                                                                                      name="register.email"
+                                                                                      id="register.email"/></fieldset>
             </div>
 
             <div class="form-field">
-              <fieldset class="user_password"><label for="user_password">密码</label><input class="text-input"
+              <fieldset class="password"><label for="register.password">密码</label><input class="text-input"
                                                                                           type="password"
-                                                                                          name="user[password]" id="user_password"/>
+                                                                                          name="register.password"
+                                                                                          id="register.password"/>
               </fieldset>
             </div>
 
@@ -87,7 +86,7 @@
             </div>
 
             <p class="auth-link-mobile">
-              已经注册? <a href="/session/new">登录</a>
+              已经注册? <a href="sign_in.jsp">登录</a>
             </p>
           </form>
         </div>

@@ -1,16 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html lang="en">
-
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <title>
-    登录
-  </title>
+  <title>登录</title>
   <link rel="stylesheet" media="screen" href="css/login.css">
-
 </head>
 
 <body class="logged-out not-pro not-player not-self not-team not-on-team  grid-small grid-with-meta sign-in">
@@ -57,7 +53,7 @@
             <input class="button" type="submit" value="登录">
           </form>
           <p class="auth-link-mobile">
-            尚未注册？ <a href="https://dribbble.com/signup/new">点击这里注册</a>
+            尚未注册？ <a href="sign_up.jsp">点击这里注册</a>
           </p>
         </div>
       </div>

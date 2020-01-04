@@ -18,11 +18,11 @@
             <result name="loginFail">/sign_in.jsp</result>
         </action>
 
-<!--&lt;!&ndash;        注册       &ndash;&gt;-->
-<!--        <action name="insertRegister" class="cn.edu.zjut.action.RegisterAction" method="insertRegister">-->
-<!--            <result name="insertRegisterSuccess">XXXXXXXXXXXX</result>-->
-<!--            <result name="insertRegisterFail">XXXXXXXXXXX</result>-->
-<!--        </action>-->
+<!--        注册       -->
+        <action name="insertRegister" class="registerAction" method="insertRegister">
+            <result name="insertRegisterSuccess">/index.jsp</result>
+            <result name="insertRegisterFail">/sign_up.jsp</result>
+        </action>
 <!--&lt;!&ndash;        修改信息    &ndash;&gt;-->
 <!--        <action name="updateRegister" class="cn.edu.zjut.action.RegisterAction" method="updateRegister">-->
 <!--            <result name="updateRegisterSuccess">XXXXXXXXXXXX</result>-->

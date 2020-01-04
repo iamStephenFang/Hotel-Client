@@ -68,8 +68,6 @@
         </where>
     </select>
 
-
-    <!--    以下为朱炫帆所写的正确率极高的bug-->
     <!--     注册会员-->
     <insert id="insertRegister" parameterType="register">
         insert

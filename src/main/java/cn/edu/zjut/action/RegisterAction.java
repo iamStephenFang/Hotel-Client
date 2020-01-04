@@ -14,8 +14,8 @@ public class RegisterAction {
     private Register register;
     private IRegisterService registerService;
 
-    public void setRegister(){
-        this.register=register;
+    public void setRegister(Register register) {
+        this.register = register;
     }
     public Register getRegister(){
         return register;
