@@ -38,11 +38,19 @@
 <!--            <result name="getRestRoomNumSuccess">XXXXXXXXXXXX</result>-->
 <!--            <result name="getRestRoomNumFail">XXXXXXXXXXX</result>-->
 <!--        </action>-->
-<!--&lt;!&ndash;        取消订单     &ndash;&gt;-->
-<!--        <action name="deleteOrder" class="cn.edu.zjut.action.OrderAction" method="deleteOrder">-->
-<!--            <result name="deleteOrderSuccess">XXXXXXXXXXXX</result>-->
-<!--            <result name="deleteOrderFail">XXXXXXXXXXX</result>-->
-<!--        </action>-->
+<!--        取消订单     -->
+        <action name="deleteOrder" class="cn.edu.zjut.action.OrderAction" method="deleteOrder">
+            <result name="deleteOrderSuccess" type="redirectAction">
+                <param name="namespace">/</param>
+                <param name="actionName">findOrderByPhone</param>
+                <param name="method">findOrderByPhone</param>
+            </result>
+            <result name="deleteOrderFail" type="redirectAction">
+                <param name="namespace">/</param>
+                <param name="actionName">findOrderByPhone</param>
+                <param name="method">findOrderByPhone</param>
+            </result>
+        </action>
 <!--&lt;!&ndash;        新增订单     &ndash;&gt;-->
 <!--        <action name="insertOrder" class="cn.edu.zjut.action.OrderAction" method="insertOrder">-->
 <!--            <result name="insertOrderSuccess">XXXXXXXXXXXX</result>-->

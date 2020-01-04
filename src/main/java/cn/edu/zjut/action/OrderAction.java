@@ -10,17 +10,19 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import java.util.Date;
+import java.util.Map;
 
 @Controller
 @Scope("prototype")
 public class OrderAction {
-    private Register register;
     private Order order;
     private String roomType;
+    private int orderId;
     private String phone;
     private Date checkInTime;
     private Date leaveTime;
     private IOrderService orderService;
+    private Map session;
 
     public void setOrder(Order order) {
         this.order = order;
@@ -28,9 +30,6 @@ public class OrderAction {
     public Order getOrder() {
         return order;
     }
-
-    public Register getRegister() { return register; }
-    public void setRegister(Register register) { this.register = register; }
 
     public void setRoomType(String roomType) {
         this.roomType=roomType;
@@ -41,6 +40,9 @@ public class OrderAction {
 
     public void setPhone(String phone) { this.phone = phone; }
     public String getPhone() { return phone; }
+
+    public void setOrderId(int orderId) { this.orderId = orderId; }
+    public int getOrderId() { return orderId; }
 
     public void setCheckInTime(Date checkInTime) {
         this.checkInTime = checkInTime;
@@ -137,7 +139,7 @@ public class OrderAction {
      * 删除订单信息
      */
     public String deleteOrder() {
-        if (orderService.deleteOrder(order.getOrderId()))
+        if (orderService.deleteOrder(orderId))
             return "deleteOrderSuccess";
         else
             return "deleteOrderFail";
@@ -161,6 +163,9 @@ public class OrderAction {
      * 按手机号查询订单
      */
     public String findOrderByPhone() {
+        ActionContext ctx = ActionContext.getContext();
+        session = ctx.getSession();
+        Register register = (Register) session.get("register");
         if (orderService.findOrderByPhone(register.getPhone()))
             return "findOrderByPhoneSuccess";
         else

@@ -18,7 +18,7 @@
 
 <div class="pusher-black"></div>
 <div class="mtop"></div>
-<div class="room-pbanner" style="background-image: url(img/room_bg.jpg);"><span class="black-70"></span>
+<div class="room-pbanner" ><span class="black-70"></span>
   <p class="title">豪华园景房</p><span class="sj"></span></div><!--room-pbanner end-->
 <dl class="room-page room-paging clearfix">
   <dd class="item1">
@@ -26,14 +26,25 @@
   </dd>
   <dd class="item2">
     <div class="room-info-box">
-      <div class="room-i-t"><p class="rprice-bot jz-promise"><span class="name">全网最优价<i class="sico"
-                                                                                        data-con="为确保您时刻享有最优惠价格，己庄保障本网址登载客房价格是互联网公布的最低价格。您于本网址以最低房价预订客房后24小时内，如发现另一网址提供比本网址公布的最低房价更低的价格，我们将会按该较低房价收费，并额外再给予九折优惠。"></i></span>
+      <div class="room-i-t"><p class="rprice-bot jz-promise">
+        <span class="name">当前价格<i class="sico" data-con="为确保您时刻享有最优惠价格，己庄保障本网址登载客房价格是互联网公布的最低价格。您于本网址以最低房价预订客房后24小时内，如发现另一网址提供比本网址公布的最低房价更低的价格，我们将会按该较低房价收费，并额外再给予九折优惠。"></i></span>
       </p>
         <p class="rprice-box">￥<span class="price">1400</span>/晚起</p>
         <p class="rprice-line"><span class="n">&nbsp;&nbsp;原价：￥3600/晚起&nbsp;&nbsp;</span></p><span class="sj"></span>
       </div>
-      <div class="room-i-c">建筑面积：58平方米<br/>楼层：1-2层<br/>床型：双人床1.98米，1张<br/>可加床：RMB 375/床/间夜<br/>入住人数：≤2人<br/></div>
-      <a href="javascript:void(0)" class="room-i-btn jz-yd-btn" data-img="img/erm.jpg">立即预订</a></div>
+      <div class="search_room" style="padding:20px 5%;text-align: center;display: block;">
+        <input id="checkInDate" type="date" name="checkInDate" value="<s:property value="checkInTime"/>" style="width: 208px;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
+        <input id="leaveDate" type="date" name="leaveDate" value="<s:property value="leaveTime"/>" style="width: 208px;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
+      </div>
+      <div class="room-i-c">
+        房型：双人床1.98米，1张<br/>
+        入住人数：≤2人<br/>
+        <s:if test="#request.roomNum!= null">
+        剩余房间数量：
+        </s:if>
+      </div>
+      <a href="javascript:void(0)" class="room-i-btn jz-yd-btn" data-img="img/erm.jpg">立即检索</a>
+     <a href="javascript:void(0)" class="room-i-btn jz-yd-btn" data-img="img/erm.jpg" style="margin-top:7px;background-color: #8B0008">立即预订</a></div>
   </dd>
 </dl><!--room-page end-->
 <div class="room-page room-paging bgdc clearfix">

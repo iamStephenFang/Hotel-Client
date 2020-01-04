@@ -10,19 +10,19 @@
   <a href="index.jsp" class="logo"><img src="images/HAPE.png" alt=""/></a>
   <div class="sider-nav">
     <ul class="clearfix">
-      <li class="serach-toggle">
-        <a href="sign_up.jsp" class="refresh-btn">
-          <span class="ico">注册</span>
-        </a>
-      </li>
-      <li class="user-toggle">
-        <a class="menu-handle">
-          <span class="ico">导航</span>
-          <span class="buger buger-1 trans"></span>
-          <span class="buger buger-3 trans"></span>
-        </a>
-      </li>
       <s:if test="#session.register == null">
+        <li class="serach-toggle">
+          <a href="sign_up.jsp" class="refresh-btn">
+            <span class="ico">注册</span>
+          </a>
+        </li>
+        <li class="user-toggle">
+          <a class="menu-handle">
+            <span class="ico">导航</span>
+            <span class="buger buger-1 trans"></span>
+            <span class="buger buger-3 trans"></span>
+          </a>
+        </li>
       <li class="btn-toggle">
         <a href="sign_in.jsp" class="quickBooking">
           <span class="">登录会员</span>
@@ -35,6 +35,18 @@
       </li>
       </s:if>
       <s:else>
+        <li class="serach-toggle">
+          <a href="sign_in.jsp" class="refresh-btn">
+            <span class="ico">退出</span>
+          </a>
+        </li>
+        <li class="user-toggle">
+          <a class="menu-handle">
+            <span class="ico"><s:property value='#session.register.account'/></span>
+            <span class="buger buger-1 trans"></span>
+            <span class="buger buger-3 trans"></span>
+          </a>
+        </li>
         <li class="btn-toggle">
           <a href="findOrderByPhone.action" class="quickBooking">
             <span class="">查看订单</span>

@@ -57,6 +57,15 @@
             </div>
 
             <div class="form-field">
+              <fieldset class="user_gender"><label>性别</label>
+                <select name="register.gender" style="width: 100%;-webkit-box-sizing: border-box;box-sizing: border-box;border: none;border-radius: 6px;padding: 9px 15px;margin-right: 8px; background: #f5f6f7; color: #444; -webkit-box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.03); box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.03); outline: none;height:40px;font-size: 16px">
+                  <option value="true">先生</option>
+                  <option value="false">女士</option>
+                </select>
+              </fieldset>
+            </div>
+
+            <div class="form-field">
               <fieldset class="user_email"><label for="register.email">电子邮箱</label><input class="text-input" type="text"
                                                                                       name="register.email"
                                                                                       id="register.email"/></fieldset>
