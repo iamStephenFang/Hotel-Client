@@ -86,7 +86,7 @@
 <div class="roombox" id="roombox">
   <div class="roomlist">
     <div class="list-left">
-      <a href="客房预订.html"><img src="images/zt.jpg" alt=""/></a>
+      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=总统套房"><img src="images/zt.jpg" alt=""/></a>
     </div>
     <div class="list-right">
       <div class="list-right-1">
@@ -108,12 +108,12 @@
         <span class="icon"></span>
         <a href="#" class="list-right-link"></a>
       </div>
-      <a href="客房预订.html" class="list-right-link"></a>
+      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=总统套房" class="list-right-link"></a>
     </div>
   </div>
   <div class="roomlist">
     <div class="list-left">
-      <a href="探索己庄.html"><img src="images/qz.jpg" alt=""/></a>
+      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=家庭房"><img src="images/qz.jpg" alt=""/></a>
     </div>
     <div class="list-right">
       <div class="list-right-1">
@@ -123,7 +123,7 @@
         </p>
       </div>
       <div class="list-right-2">
-        <p class="name">亲子房</p>
+        <p class="name">家庭房</p>
         <p class="money-h">
           举家出游，多方自在
         </p>
@@ -134,13 +134,13 @@
         <span class="icon"></span>
 
       </div>
-      <a href="探索己庄.html" class="list-right-link"></a>
+      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=家庭房" class="list-right-link"></a>
 
     </div>
   </div>
   <div class="roomlist">
     <div class="list-left">
-      <a href="畅游峨眉.html"><img src="images/dc.jpg" alt=""/></a>
+      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=大床房"><img src="images/dc.jpg" alt=""/></a>
     </div>
     <div class="list-right">
       <div class="list-right-1">
@@ -160,12 +160,12 @@
         <span class="line"></span>
         <span class="icon"></span>
       </div>
-      <a href="畅游峨眉.html" class="list-right-link"></a>
+      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=大床房" class="list-right-link"></a>
     </div>
   </div>
   <div class="roomlist">
     <div class="list-left">
-      <a href="畅游峨眉.html"><img src="images/sc.jpg" alt=""/></a>
+      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=双床房"><img src="images/sc.jpg" alt=""/></a>
     </div>
     <div class="list-right">
       <div class="list-right-1">
@@ -185,7 +185,7 @@
         <span class="line"></span>
         <span class="icon"></span>
       </div>
-      <a href="畅游峨眉.html" class="list-right-link"></a>
+      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=双床房" class="list-right-link"></a>
     </div>
   </div>
 </div>

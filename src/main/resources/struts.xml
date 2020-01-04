@@ -33,11 +33,11 @@
 <!--            <result name="findByMultiConditionsSuccess">XXXXXXXXXXXX</result>-->
 <!--            <result name="findByMultiConditionsFail">XXXXXXXXXXX</result>-->
 <!--        </action>-->
-<!--&lt;!&ndash;        查询空房     &ndash;&gt;-->
-<!--        <action name="getRestRoomNum" class="cn.edu.zjut.action.OrderAction" method="getRestRoomNum">-->
-<!--            <result name="getRestRoomNumSuccess">XXXXXXXXXXXX</result>-->
-<!--            <result name="getRestRoomNumFail">XXXXXXXXXXX</result>-->
-<!--        </action>-->
+<!--        查询空房     -->
+        <action name="getRestRoomNum" class="cn.edu.zjut.action.RoomAction" method="getRestRoomNum">
+            <result name="getRestRoomNumSuccess">search_room.jsp</result>
+            <result name="getRestRoomNumFail">search_room.jsp</result>
+        </action>
 <!--        取消订单     -->
         <action name="deleteOrder" class="cn.edu.zjut.action.OrderAction" method="deleteOrder">
             <result name="deleteOrderSuccess" type="redirectAction">
@@ -50,6 +50,12 @@
                 <param name="actionName">findOrderByPhone</param>
                 <param name="method">findOrderByPhone</param>
             </result>
+        </action>
+
+        <!--查找房型信息-->
+        <action name="findByType" class="roomAction" method="findByRoomType">
+            <result name="findByRoomTypeSuccess">/search_room.jsp</result>
+            <result name="findByRoomTypeFail">/index.jsp</result>
         </action>
 <!--&lt;!&ndash;        新增订单     &ndash;&gt;-->
 <!--        <action name="insertOrder" class="cn.edu.zjut.action.OrderAction" method="insertOrder">-->

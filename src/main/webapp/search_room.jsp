@@ -19,7 +19,7 @@
 <div class="pusher-black"></div>
 <div class="mtop"></div>
 <div class="room-pbanner" ><span class="black-70"></span>
-  <p class="title">豪华园景房</p><span class="sj"></span></div><!--room-pbanner end-->
+  <p class="title"><s:property value="#request.roomType.type"/></p></div><!--room-pbanner end-->
 <dl class="room-page room-paging clearfix">
   <dd class="item1">
     <div class="room-deom"><p class="img"><img src="images/zt.jpg"/></p></div>
@@ -29,26 +29,37 @@
       <div class="room-i-t"><p class="rprice-bot jz-promise">
         <span class="name">当前价格<i class="sico" data-con="为确保您时刻享有最优惠价格，己庄保障本网址登载客房价格是互联网公布的最低价格。您于本网址以最低房价预订客房后24小时内，如发现另一网址提供比本网址公布的最低房价更低的价格，我们将会按该较低房价收费，并额外再给予九折优惠。"></i></span>
       </p>
-        <p class="rprice-box">￥<span class="price">1400</span>/晚起</p>
-        <p class="rprice-line"><span class="n">&nbsp;&nbsp;原价：￥3600/晚起&nbsp;&nbsp;</span></p><span class="sj"></span>
+        <p class="rprice-box">￥<span class="price"><s:property value="#request.roomType.roomPrice"/></span>/晚起</p>
+<%--        <p class="rprice-line"><span class="n">&nbsp;&nbsp;原价：￥3600/晚起&nbsp;&nbsp;</span></p><span class="sj"></span>--%>
       </div>
       <div class="search_room" style="padding:20px 5%;text-align: center;display: block;">
-        <input id="checkInDate" type="date" placeholder="入住日期" name="checkInDate" value="<s:property value="checkInTime"/>" style="width: 100%;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
-        <input id="leaveDate" type="date" placeholder="退房日期" name="leaveDate" value="<s:property value="leaveTime"/>" style="margin-top:1px;width: 100%;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
+        <input id="checkInTime" type="date" placeholder="入住日期" name="checkInTime" value="<s:property value="checkInTime"/>" style="width: 100%;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
+        <input id="leaveTime" type="date" placeholder="退房日期" name="leaveTime" value="<s:property value="leaveTime"/>" style="margin-top:1px;width: 100%;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
       </div>
       <div class="room-i-c" style="padding: 20px 5%;">
-        房型：双人床1.98米，1张<br/>
-        入住人数：≤2人<br/>
-        <s:if test="#request.roomNum!= null">
-        剩余房间数量：
+        房型：<s:property value="#request.roomType.type"/><br/>
+        入住人数：≤<s:property value="#request.roomType.checkInNum"/>人<br/>
+        <s:if test="#request.leftRoom!= null">
+        剩余房间数量：<s:property value="#request.leftRoom"/><br/>
         </s:if>
       </div>
-      <a href="javascript:void(0)" class="room-i-btn jz-yd-btn" data-img="img/erm.jpg">立即检索</a>
+      <a href="http://localhost:8080/hotel_client_war_exploded/getRestRoomNum.action?type=<s:property value="#request.roomType.type"/>&leaveTime=<s:property value="leaveTime"/>&checkInTime=<s:property value="checkInTime"/>" class="room-i-btn jz-yd-btn" data-img="img/erm.jpg">立即检索</a>
      <a href="javascript:void(0)" class="room-i-btn jz-yd-btn" data-img="img/erm.jpg" style="margin-top:7px;background-color: #8B0008">立即预订</a></div>
   </dd>
 </dl><!--room-page end-->
 <div class="room-page room-paging bgdc clearfix">
-  <div class="pageC room-pageC">田园魅力<br/>58平方米的超大私享空间<br/>私人阳台<br/>淋浴，浴缸和双面盆<br/></div>
+  <s:if test="#request.roomType.type == '双床房'">
+    <div class="pageC room-pageC">极致简约<br/>格局虽小，却有着无比精致的布置<br/>私人定制<br/>尽享自由空间<br/></div>
+  </s:if>
+  <s:if test="#request.roomType.type == '大床房'">
+    <div class="pageC room-pageC">宽敞空间<br/>完美隔音保证精致睡眠<br/>私人阳台<br/>尽享独特美景<br/></div>
+  </s:if>
+  <s:if test="#request.roomType.type == '家庭房'">
+    <div class="pageC room-pageC">其乐融融<br/>为家族专门设计的极大空间<br/>附带厨房与迷你吧台<br/>通过活动享受家族之乐<br/></div>
+  </s:if>
+  <s:if test="#request.roomType.type == '总统套房'">
+    <div class="pageC room-pageC">极致享受<br/>为您送上最周全的服务<br/>面朝大海<br/>日出的第一缕光从这儿开始<br/></div>
+  </s:if>
 </div><!--room-page end-->
 <div class="room-page room-paging clearfix">
   <div class="pageC room-pageC"><h3>设施</h3>
@@ -70,19 +81,19 @@
   <dt class="t">所有房间</dt>
   <dd>
     <ul class="clearfix ledmore-room-list">
-      <li><a href="roomInfo.aspx?ContentID=7"><img src="images/zt.jpg"
+      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=总统套房"><img src="images/zt.jpg"
                                                    class="img"/>
         <div class="txt">总统套房</div>
       </a></li>
-      <li><a href="roomInfo.aspx?ContentID=4"><img src="images/qz.jpg"
+      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=家庭房"><img src="images/qz.jpg"
                                                    class="img"/>
         <div class="txt">亲子套房</div>
       </a></li>
-      <li><a href="roomInfo.aspx?ContentID=3"><img src="images/dc.jpg"
+      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=大床房"><img src="images/dc.jpg"
                                                    class="img"/>
         <div class="txt">大床房</div>
       </a></li>
-      <li><a href="roomInfo.aspx?ContentID=2"><img src="images/sc.jpg"
+      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=双床房"><img src="images/sc.jpg"
                                                    class="img"/>
         <div class="txt">双床房</div>
       </a></li>

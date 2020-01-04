@@ -142,11 +142,9 @@ public class OrderService implements IOrderService {
     @Override
     public int restRoomNum(String roomType, Date checkInTime ,Date leaveTime) {
         System.out.println("正在findNonemptyRoom方法...");
-
         ActionContext context = ActionContext.getContext();
         request = (Map<String, List>) context.get("request");
         List<Order> orders = new ArrayList<Order>();
-
         try {
             orders = orderMapper.findNonemptyRoom(roomType, checkInTime, leaveTime);
             int roomTypeNum = roomMapper.findRoomNumByType(roomType);
@@ -168,6 +166,7 @@ public class OrderService implements IOrderService {
                     max = count;
                 calendar.add(Calendar.DATE,1);
             }
+            request.put("leftRoom",roomTypeNum - max);
             return roomTypeNum - max;
         } catch (Exception e) {
             e.printStackTrace();
