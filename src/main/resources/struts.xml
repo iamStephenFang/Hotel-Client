@@ -34,7 +34,7 @@
 <!--            <result name="findByMultiConditionsFail">XXXXXXXXXXX</result>-->
 <!--        </action>-->
 <!--        查询空房     -->
-        <action name="getRestRoomNum" class="cn.edu.zjut.action.RoomAction" method="getRestRoomNum">
+        <action name="getRestRoomNum" class="cn.edu.zjut.action.OrderAction" method="getRestRoomNum">
             <result name="getRestRoomNumSuccess">search_room.jsp</result>
             <result name="getRestRoomNumFail">search_room.jsp</result>
         </action>

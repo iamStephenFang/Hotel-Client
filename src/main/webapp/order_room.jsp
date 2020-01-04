@@ -19,21 +19,27 @@
 <div class="pusher-black"></div>
 <div class="mtop"></div>
 <div class="room-pbanner" style="background-image: url(img/room_bg.jpg);"><span class="black-70"></span>
-  <p class="title">豪华园景房</p><span class="sj"></span></div><!--room-pbanner end-->
+  <p class="title">双床房</p><span class="sj"></span></div><!--room-pbanner end-->
 <dl class="room-page room-paging clearfix">
   <dd class="item1">
     <div class="room-deom"><p class="img"><img src="images/zt.jpg"/></p></div>
   </dd>
   <dd class="item2">
     <div class="room-info-box">
-      <div class="room-i-t"><p class="rprice-bot jz-promise"><span class="name">全网最优价<i class="sico"
-                                                                                        data-con="为确保您时刻享有最优惠价格，己庄保障本网址登载客房价格是互联网公布的最低价格。您于本网址以最低房价预订客房后24小时内，如发现另一网址提供比本网址公布的最低房价更低的价格，我们将会按该较低房价收费，并额外再给予九折优惠。"></i></span>
+      <div class="room-i-t"><p class="rprice-bot jz-promise"><span class="name">享受会员折扣</span>
       </p>
-        <p class="rprice-box">￥<span class="price">1400</span>/晚起</p>
-        <p class="rprice-line"><span class="n">&nbsp;&nbsp;原价：￥3600/晚起&nbsp;&nbsp;</span></p><span class="sj"></span>
+        <p class="rprice-box">￥<span class="price">1600</span>总价</p>
+        <p class="rprice-line"><span class="n">&nbsp;&nbsp;原价：￥2000 &nbsp;&nbsp;</span></p><span class="sj"></span>
       </div>
-      <div class="room-i-c">建筑面积：58平方米<br/>楼层：1-2层<br/>床型：双人床1.98米，1张<br/>可加床：RMB 375/床/间夜<br/>入住人数：≤2人<br/></div>
-      <a href="javascript:void(0)" class="room-i-btn jz-yd-btn" data-img="img/erm.jpg">立即预订</a></div>
+      <div class="room-i-c">
+        房型：双床房<br/>
+        剩余房间数量：2 间<br/>
+        每间入住人数：≤2人<br/>
+        选择房间数量：<input id="number" type="number" value="1" style="max-width: 30px">间<br/>
+      </div>
+      <a href="javascript:void(0)" class="room-i-btn jz-yd-btn" data-img="img/erm.jpg" >完成预订</a>
+      <a href="javascript:void(0)" class="room-i-btn jz-yd-btn" data-img="img/erm.jpg" style="margin-top:7px;background-color: #8B0008">返回检索</a>
+    </div>
   </dd>
 </dl><!--room-page end-->
 <div class="room-page room-paging bgdc clearfix">

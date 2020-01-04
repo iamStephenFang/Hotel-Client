@@ -2,8 +2,10 @@ package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.OrderMapper;
 import cn.edu.zjut.dao.RoomMapper;
+import cn.edu.zjut.dao.RoomTypeMapper;
 import cn.edu.zjut.po.Order;
 import cn.edu.zjut.po.OrderExtendsRegister;
+import cn.edu.zjut.po.RoomType;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,15 @@ public class OrderService implements IOrderService {
     private Map request;
     private OrderMapper orderMapper = null;
     private RoomMapper roomMapper =null;
+    private RoomTypeMapper roomTypeMapper =null;
+
+    @Autowired
+    public void setRoomTypeMapper(RoomTypeMapper roomTypeMapper) { this.roomTypeMapper = roomTypeMapper; }
+    public RoomTypeMapper getRoomTypeMapper() { return roomTypeMapper; }
+
+    @Autowired
+    public void setRoomMapper(RoomMapper roomMapper) { this.roomMapper = roomMapper; }
+    public RoomMapper getRoomMapper() { return roomMapper; }
 
     @Autowired
     public void setOrderMapper(OrderMapper orderMapper) {
@@ -140,14 +151,15 @@ public class OrderService implements IOrderService {
         }
     }
     @Override
-    public int restRoomNum(String roomType, Date checkInTime ,Date leaveTime) {
+    public int restRoomNum(String type, Date checkInTime ,Date leaveTime) {
         System.out.println("正在findNonemptyRoom方法...");
         ActionContext context = ActionContext.getContext();
         request = (Map<String, List>) context.get("request");
+        RoomType instance = roomTypeMapper.findByRoomType(type);
         List<Order> orders = new ArrayList<Order>();
         try {
-            orders = orderMapper.findNonemptyRoom(roomType, checkInTime, leaveTime);
-            int roomTypeNum = roomMapper.findRoomNumByType(roomType);
+            orders = orderMapper.findNonemptyRoom(type, checkInTime, leaveTime);
+            int roomTypeNum = roomMapper.findRoomNumByType(type);
             int max=0;
             Date beginDate = new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(checkInTime));
             Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(leaveTime));
@@ -167,6 +179,9 @@ public class OrderService implements IOrderService {
                 calendar.add(Calendar.DATE,1);
             }
             request.put("leftRoom",roomTypeNum - max);
+            request.put("roomType",instance);
+            request.put("checkInTime",checkInTime);
+            request.put("leaveTime",leaveTime);
             return roomTypeNum - max;
         } catch (Exception e) {
             e.printStackTrace();

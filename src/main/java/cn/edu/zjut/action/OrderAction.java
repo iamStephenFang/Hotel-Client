@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
@@ -16,11 +17,11 @@ import java.util.Map;
 @Scope("prototype")
 public class OrderAction {
     private Order order;
-    private String roomType;
+    private String type;
     private int orderId;
     private String phone;
-    private Date checkInTime;
-    private Date leaveTime;
+    private String checkInTime;
+    private String leaveTime;
     private IOrderService orderService;
     private Map session;
 
@@ -31,11 +32,11 @@ public class OrderAction {
         return order;
     }
 
-    public void setRoomType(String roomType) {
-        this.roomType=roomType;
+    public void setType(String type) {
+        this.type=type;
     }
-    public String getRoomType() {
-        return roomType;
+    public String getType() {
+        return type;
     }
 
     public void setPhone(String phone) { this.phone = phone; }
@@ -44,17 +45,17 @@ public class OrderAction {
     public void setOrderId(int orderId) { this.orderId = orderId; }
     public int getOrderId() { return orderId; }
 
-    public void setCheckInTime(Date checkInTime) {
+    public void setCheckInTime(String checkInTime) {
         this.checkInTime = checkInTime;
     }
-    public Date getCheckInTime() {
+    public String getCheckInTime() {
         return checkInTime;
     }
 
-    public void setLeaveTime(Date leaveTime) {
+    public void setLeaveTime(String leaveTime) {
         this.leaveTime = leaveTime;
     }
-    public Date getLeaveTime() {
+    public String getLeaveTime() {
         return leaveTime;
     }
 
@@ -125,10 +126,16 @@ public class OrderAction {
      * 查找 剩余 空房
      */
     public String getRestRoomNum(){
-        if (orderService.restRoomNum(roomType,checkInTime,leaveTime)>=0){
-            return "getRestRoomNumSuccess";
-        }
-        else {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            if (orderService.restRoomNum(type,simpleDateFormat.parse(checkInTime),simpleDateFormat.parse(leaveTime))>=0){
+                return "getRestRoomNumSuccess";
+            }
+            else {
+                return "getRestRoomNumFail";
+            }
+        }catch (Exception e){
+            e.printStackTrace();
             return "getRestRoomNumFail";
         }
     }

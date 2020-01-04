@@ -1,21 +1,19 @@
 package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.RoomTypeMapper;
+import cn.edu.zjut.po.Order;
 import cn.edu.zjut.po.RoomType;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Service
 public class RoomTypeService implements IRoomTypeService{
     private Map request;
     private RoomTypeMapper roomTypeMapper = null;
-
-
     public RoomTypeMapper getRoomTypeMapper() {
         return roomTypeMapper;
     }

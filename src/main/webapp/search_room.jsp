@@ -9,7 +9,6 @@
   <link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
   <link rel="stylesheet" href="css/base.css"/>
   <link rel="stylesheet" type="text/css" href="css/style.css"/>
-  <link rel="stylesheet" type="text/css" href="css/responsive.css"/>
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
   <title>房间预订</title>
 </head>
@@ -22,7 +21,18 @@
   <p class="title"><s:property value="#request.roomType.type"/></p></div><!--room-pbanner end-->
 <dl class="room-page room-paging clearfix">
   <dd class="item1">
-    <div class="room-deom"><p class="img"><img src="images/zt.jpg"/></p></div>
+    <s:if test="#request.roomType.type == '双床房'">
+      <div class="room-deom"><p class="img"><img src="images/sc.jpg"/></p></div>
+    </s:if>
+    <s:if test="#request.roomType.type == '大床房'">
+      <div class="room-deom"><p class="img"><img src="images/dc.jpg"/></p></div>
+    </s:if>
+    <s:if test="#request.roomType.type == '家庭房'">
+      <div class="room-deom"><p class="img"><img src="images/qz.jpg"/></p></div>
+    </s:if>
+    <s:if test="#request.roomType.type == '总统套房'">
+      <div class="room-deom"><p class="img"><img src="images/zt.jpg"/></p></div>
+    </s:if>
   </dd>
   <dd class="item2">
     <div class="room-info-box">
@@ -32,9 +42,10 @@
         <p class="rprice-box">￥<span class="price"><s:property value="#request.roomType.roomPrice"/></span>/晚起</p>
 <%--        <p class="rprice-line"><span class="n">&nbsp;&nbsp;原价：￥3600/晚起&nbsp;&nbsp;</span></p><span class="sj"></span>--%>
       </div>
+      <form action="getRestRoomNum.action" method="post">
       <div class="search_room" style="padding:20px 5%;text-align: center;display: block;">
-        <input id="checkInTime" type="date" placeholder="入住日期" name="checkInTime" value="<s:property value="checkInTime"/>" style="width: 100%;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
-        <input id="leaveTime" type="date" placeholder="退房日期" name="leaveTime" value="<s:property value="leaveTime"/>" style="margin-top:1px;width: 100%;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
+        来店时间：<input id="checkInTime" type="date"  name="checkInTime" value="<s:property value="#request.checkInTime"/>" style="width: 370px;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
+        离店时间：<input id="leaveTime" type="date"  name="leaveTime" value="<s:property value="#request.leaveTime"/>" style="margin-top:7px;width: 370px;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
       </div>
       <div class="room-i-c" style="padding: 20px 5%;">
         房型：<s:property value="#request.roomType.type"/><br/>
@@ -42,9 +53,12 @@
         <s:if test="#request.leftRoom!= null">
         剩余房间数量：<s:property value="#request.leftRoom"/><br/>
         </s:if>
+        <s:hidden name="type" value="%{#request.roomType.type}"/>
       </div>
-      <a href="http://localhost:8080/hotel_client_war_exploded/getRestRoomNum.action?type=<s:property value="#request.roomType.type"/>&leaveTime=<s:property value="leaveTime"/>&checkInTime=<s:property value="checkInTime"/>" class="room-i-btn jz-yd-btn" data-img="img/erm.jpg">立即检索</a>
-     <a href="javascript:void(0)" class="room-i-btn jz-yd-btn" data-img="img/erm.jpg" style="margin-top:7px;background-color: #8B0008">立即预订</a></div>
+      <input type="submit" class="room-i-btn jz-yd-btn" value="立即检索" data-img="img/erm.jpg" style="font-size: 14px">
+      </form>
+     <a href="javascript:void(0)" class="room-i-btn jz-yd-btn" style="margin-top:7px;background-color: #8B0008">立即预订</a>
+    </div>
   </dd>
 </dl><!--room-page end-->
 <div class="room-page room-paging bgdc clearfix">
