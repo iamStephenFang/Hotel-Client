@@ -33,10 +33,10 @@
         <p class="rprice-line"><span class="n">&nbsp;&nbsp;原价：￥3600/晚起&nbsp;&nbsp;</span></p><span class="sj"></span>
       </div>
       <div class="search_room" style="padding:20px 5%;text-align: center;display: block;">
-        <input id="checkInDate" type="date" name="checkInDate" value="<s:property value="checkInTime"/>" style="width: 208px;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
-        <input id="leaveDate" type="date" name="leaveDate" value="<s:property value="leaveTime"/>" style="width: 208px;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
+        <input id="checkInDate" type="date" placeholder="入住日期" name="checkInDate" value="<s:property value="checkInTime"/>" style="width: 100%;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
+        <input id="leaveDate" type="date" placeholder="退房日期" name="leaveDate" value="<s:property value="leaveTime"/>" style="margin-top:1px;width: 100%;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
       </div>
-      <div class="room-i-c">
+      <div class="room-i-c" style="padding: 20px 5%;">
         房型：双人床1.98米，1张<br/>
         入住人数：≤2人<br/>
         <s:if test="#request.roomNum!= null">
