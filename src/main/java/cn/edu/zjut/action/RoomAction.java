@@ -47,10 +47,11 @@ public class RoomAction {
      * 检索RoomType信息
      */
     public String findByRoomType() {
-        if (roomTypeService.findByRoomType(type))
+        if (roomTypeService.findByRoomType(type)) {
             return "findByRoomTypeSuccess";
-        else
+        } else {
             return "findByRoomTypeFail";
+        }
     }
 
     /**

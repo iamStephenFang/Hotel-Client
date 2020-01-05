@@ -9,7 +9,6 @@
   <link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
   <link rel="stylesheet" href="css/base.css"/>
   <link rel="stylesheet" type="text/css" href="css/style.css"/>
-  <link rel="stylesheet" type="text/css" href="css/responsive.css"/>
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
   <title>房间预订</title>
 </head>
@@ -18,32 +17,53 @@
 
 <div class="pusher-black"></div>
 <div class="mtop"></div>
-<div class="room-pbanner" style="background-image: url(img/room_bg.jpg);"><span class="black-70"></span>
-  <p class="title">双床房</p><span class="sj"></span></div><!--room-pbanner end-->
+<div class="room-pbanner"><span class="black-70"></span>
+  <p class="title"><s:property value="#request.roomType.type"/></p><span class="sj"></span></div><!--room-pbanner end-->
 <dl class="room-page room-paging clearfix">
   <dd class="item1">
     <div class="room-deom"><p class="img"><img src="images/zt.jpg"/></p></div>
   </dd>
   <dd class="item2">
     <div class="room-info-box">
-      <div class="room-i-t"><p class="rprice-bot jz-promise"><span class="name">享受会员折扣</span>
-      </p>
-        <p class="rprice-box">￥<span class="price">1600</span>总价</p>
-        <p class="rprice-line"><span class="n">&nbsp;&nbsp;原价：￥2000 &nbsp;&nbsp;</span></p><span class="sj"></span>
+      <div class="room-i-t">
+        <p class="rprice-bot jz-promise">
+          <s:if test="#session.register != null">
+            <span class="name">享受会员折扣</span>
+          </s:if>
+        </p>
+        <p class="rprice-box">￥<span class="price" id="discountPrice"></span>总价</p>
+        <p class="rprice-line"><span class="n" id="originalPrice"></span></p><span
+          class="sj"></span>
       </div>
+      <form name="from" method="post">
       <div class="room-i-c">
-        房型：双床房<br/>
-        剩余房间数量：2 间<br/>
-        每间入住人数：≤2人<br/>
-        选择房间数量：<input id="number" type="number" value="1" style="max-width: 30px">间<br/>
+        时间：<s:property value="checkInTime"/>-<s:property value="leaveTime"/><br/>
+        房型：<s:property value="#request.roomType.type"/><br/>
+        每间入住人数：≤<s:property value="#request.roomType.checkInNum"/>人<br/>
+        剩余房间数量：<s:property value="#request.leftRoom"/> 间<br/>
+        选择房间数量：<input id="roomNum" name="roomNum" type="number" max="<s:property value="#request.leftRoom"/>" min="1" value="1" style="max-width: 30px">间<br/>
+        享受会员折扣：<s:property value="#session.register.member.discount"/> <br/>
+        会员等级：<s:property value="#session.register.member.memberDetail"/> <br/>
       </div>
-      <a href="javascript:void(0)" class="room-i-btn jz-yd-btn" data-img="img/erm.jpg" >完成预订</a>
-      <a href="javascript:void(0)" class="room-i-btn jz-yd-btn" data-img="img/erm.jpg" style="margin-top:7px;background-color: #8B0008">返回检索</a>
+        <input type="button" onclick="backAction()" class="room-i-btn jz-yd-btn" value="返回检索" data-img="img/erm.jpg" style="font-size: 14px">
+          <input type="button" onclick="orderAction()" class="room-i-btn jz-yd-btn" value="完成预订" data-img="img/erm.jpg" style="font-size: 14px;margin-top:7px;background-color: #8B0008">
+      </form>
     </div>
   </dd>
 </dl><!--room-page end-->
 <div class="room-page room-paging bgdc clearfix">
-  <div class="pageC room-pageC">田园魅力<br/>58平方米的超大私享空间<br/>私人阳台<br/>淋浴，浴缸和双面盆<br/></div>
+  <s:if test="#request.roomType.type == '双床房'">
+    <div class="pageC room-pageC">极致简约<br/>格局虽小，却有着无比精致的布置<br/>私人定制<br/>尽享自由空间<br/></div>
+  </s:if>
+  <s:if test="#request.roomType.type == '大床房'">
+    <div class="pageC room-pageC">宽敞空间<br/>完美隔音保证精致睡眠<br/>私人阳台<br/>尽享独特美景<br/></div>
+  </s:if>
+  <s:if test="#request.roomType.type == '家庭房'">
+    <div class="pageC room-pageC">其乐融融<br/>为家族专门设计的极大空间<br/>附带厨房与迷你吧台<br/>通过活动享受家族之乐<br/></div>
+  </s:if>
+  <s:if test="#request.roomType.type == '总统套房'">
+    <div class="pageC room-pageC">极致享受<br/>为您送上最周全的服务<br/>面朝大海<br/>日出的第一缕光从这儿开始<br/></div>
+  </s:if>
 </div><!--room-page end-->
 <div class="room-page room-paging clearfix">
   <div class="pageC room-pageC"><h3>设施</h3>
@@ -65,20 +85,20 @@
   <dt class="t">所有房间</dt>
   <dd>
     <ul class="clearfix ledmore-room-list">
-      <li><a href="roomInfo.aspx?ContentID=7"><img src="images/zt.jpg"
-                                                   class="img"/>
+      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=总统套房"><img src="images/zt.jpg"
+                                                                                                     class="img"/>
         <div class="txt">总统套房</div>
       </a></li>
-      <li><a href="roomInfo.aspx?ContentID=4"><img src="images/qz.jpg"
-                                                   class="img"/>
+      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=家庭房"><img src="images/qz.jpg"
+                                                                                                    class="img"/>
         <div class="txt">亲子套房</div>
       </a></li>
-      <li><a href="roomInfo.aspx?ContentID=3"><img src="images/dc.jpg"
-                                                   class="img"/>
+      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=大床房"><img src="images/dc.jpg"
+                                                                                                    class="img"/>
         <div class="txt">大床房</div>
       </a></li>
-      <li><a href="roomInfo.aspx?ContentID=2"><img src="images/sc.jpg"
-                                                   class="img"/>
+      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=双床房"><img src="images/sc.jpg"
+                                                                                                    class="img"/>
         <div class="txt">双床房</div>
       </a></li>
     </ul>
@@ -93,7 +113,7 @@
       </a>
     </li>
     <li class="second">
-      <a href="sign_in.jsp">
+      <a href="findOrderByPhone.action">
         <i class="i4"></i>
       </a>
     </li>
@@ -102,5 +122,35 @@
 
 <%@include file="footer.jsp" %>
 <%@include file="nav.jsp" %>
+<%--<script type="text/javascript">--%>
+<%--    var discount = 0.8;--%>
+<%--    var roomNum = document.getElementById("number").getAttribute("value");--%>
+<%--    var oneRoomPrice = <s:property value="#request.roomType.roomPrice"/>;--%>
+<%--    var originalPrice = roomNum * oneRoomPrice;--%>
+<%--    var discountPrice = originalPrice * discount;--%>
+<%--    document.getElementById("originalPrice").innerText = "&nbsp;原价：￥"+originalPrice+" &nbsp;";--%>
+<%--    document.getElementById("discountPrice").innerText = discountPrice.toString();--%>
+<%--</script>--%>
+<script type="text/javascript">
+  var discount = <s:property value="#session.register.member.discount"/>;
+  var roomPrice = <s:property value="#request.roomType.roomPrice"/>;
+  var days = <s:property value="#request.days"/>;
+  var RoomNum = document.getElementById("roomNum");
+  var roomNum = document.getElementById("roomNum").getAttribute("value");
+  var originalPrice = roomNum*days*roomPrice;
+  var discountPrice = roomNum*days*roomPrice*discount;
+  document.getElementById("discountPrice").innerText = discountPrice;
+  document.getElementById("originalPrice").innerText = "原价：￥"+originalPrice;
+
+    function backAction(){
+        document.from.action="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=<s:property value="#request.roomType.type"/>";
+        document.from.submit();
+    }
+
+    function orderAction(){
+        document.from.action="insertOrder.action";
+        document.from.submit();
+    }
+</script>
 </body>
 </html>

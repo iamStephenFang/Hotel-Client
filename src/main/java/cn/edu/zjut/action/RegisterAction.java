@@ -35,10 +35,11 @@ public class RegisterAction {
      * 用户注册
      */
     public String insertRegister() {
-        if (registerService.insertRegister(register))
+        if (registerService.insertRegister(register)) {
             return "insertRegisterSuccess";
-        else
+        } else {
             return "insertRegisterFail";
+        }
     }
 
     /**
@@ -47,9 +48,10 @@ public class RegisterAction {
      * 更改用户信息
      */
     public String updateRegister(){
-        if(registerService.updateRegister(register))
+        if(registerService.updateRegister(register)) {
             return "updateRegisterSuccess";
-        else
+        } else {
             return "updateRegisterFail";
+        }
     }
 }

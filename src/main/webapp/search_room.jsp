@@ -42,7 +42,7 @@
         <p class="rprice-box">￥<span class="price"><s:property value="#request.roomType.roomPrice"/></span>/晚起</p>
 <%--        <p class="rprice-line"><span class="n">&nbsp;&nbsp;原价：￥3600/晚起&nbsp;&nbsp;</span></p><span class="sj"></span>--%>
       </div>
-      <form action="getRestRoomNum.action" method="post">
+      <form name="from" method="post">
       <div class="search_room" style="padding:20px 5%;text-align: center;display: block;">
         来店时间：<input id="checkInTime" type="date"  name="checkInTime" value="<s:property value="#request.checkInTime"/>" style="width: 370px;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
         离店时间：<input id="leaveTime" type="date"  name="leaveTime" value="<s:property value="#request.leaveTime"/>" style="margin-top:7px;width: 370px;background-color: #9b6946;height: 36px;line-height: 36px;color: #FFFFFF">
@@ -53,11 +53,14 @@
         <s:if test="#request.leftRoom!= null">
         剩余房间数量：<s:property value="#request.leftRoom"/><br/>
         </s:if>
+        <s:hidden name="leftRoom" value="%{#request.leftRoom}"/>
         <s:hidden name="type" value="%{#request.roomType.type}"/>
       </div>
-      <input type="submit" class="room-i-btn jz-yd-btn" value="立即检索" data-img="img/erm.jpg" style="font-size: 14px">
+      <input type="button" onclick="searchAction()" class="room-i-btn jz-yd-btn" value="立即检索" data-img="img/erm.jpg" style="font-size: 14px">
+        <s:if test="#request.leftRoom!= null">
+        <input type="button" onclick="orderAction()" class="room-i-btn jz-yd-btn" value="立即预订" data-img="img/erm.jpg" style="font-size: 14px;margin-top:7px;background-color: #8B0008">
+        </s:if>
       </form>
-     <a href="javascript:void(0)" class="room-i-btn jz-yd-btn" style="margin-top:7px;background-color: #8B0008">立即预订</a>
     </div>
   </dd>
 </dl><!--room-page end-->
@@ -123,7 +126,7 @@
       </a>
     </li>
     <li class="second">
-      <a href="sign_in.jsp">
+      <a href="findOrderByPhone.action">
         <i class="i4"></i>
       </a>
     </li>
@@ -132,5 +135,16 @@
 
 <%@include file="footer.jsp" %>
 <%@include file="nav.jsp" %>
+<script type="text/javascript">
+    function searchAction(){
+        document.from.action="getRestRoomNum.action";
+        document.from.submit();
+    }
+
+    function orderAction(){
+        document.from.action="checkOrder.action";
+        document.from.submit();
+    }
+</script>
 </body>
 </html>

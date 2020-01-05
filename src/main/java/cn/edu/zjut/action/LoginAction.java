@@ -49,9 +49,10 @@ public class LoginAction {
         Register register = new Register();
         register.setPhone(phone);
         register.setPassword(password);
-        if(registerService.findByPhone(register)!= null)
+        if(registerService.findByPhone(register)!= null) {
             return "loginSuccess";
-        else
+        } else {
             return  "loginFail";
+        }
     }
 }

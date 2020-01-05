@@ -22,6 +22,7 @@ public class OrderAction {
     private String phone;
     private String checkInTime;
     private String leaveTime;
+    private int leftRoom;
     private IOrderService orderService;
     private Map session;
 
@@ -59,6 +60,9 @@ public class OrderAction {
         return leaveTime;
     }
 
+    public void setLeftRoom(int leftRoom) { this.leftRoom = leftRoom; }
+    public int getLeftRoom() { return leftRoom; }
+
     @Autowired
     public void setOrderService(IOrderService orderService) {
         this.orderService = orderService;
@@ -67,32 +71,7 @@ public class OrderAction {
         return orderService;
     }
 
-//    /**
-//     * @author 王凌云
-//     * @return String
-//     * 返回所有订单信息
-//     */
-//    public String listAll(){
-//        if (orderService.findAllOrders()){
-//            return "findAllSuccess";
-//        }
-//        else {
-//            return "findAllFail";
-//        }
-//    }
-//
-//    /**
-//     * @author 王凌云
-//     * @return String
-//     * 通过订单号单条件搜索订单
-//     */
-//    public String findOrderById() {
-//        if (orderService.findOrderById(order.getOrderId()))
-//            return "findOrderByIdSuccess";
-//        else
-//            return "findOrderByIdFail";
-//    }
-//
+
     /**
      * @author 王凌云
      * @return String
@@ -106,20 +85,7 @@ public class OrderAction {
             return "findByMultiConditionsFail";
         }
     }
-//
-//    /**
-//     * @author 王凌云
-//     * @return String
-//     * 更新订单信息
-//     */
-//    public String updateOrder() {
-//        if (orderService.updateOrder(order))
-//            return "updateOrderSuccess";
-//        else
-//            return "updateOrderFail";
-//    }
-//
-//
+
     /**
      * @author 朱炫帆
      * @return String
@@ -146,10 +112,31 @@ public class OrderAction {
      * 删除订单信息
      */
     public String deleteOrder() {
-        if (orderService.deleteOrder(orderId))
+        if (orderService.deleteOrder(orderId)) {
             return "deleteOrderSuccess";
-        else
+        } else {
             return "deleteOrderFail";
+        }
+    }
+
+    /**
+     * @author 方宣淼
+     * @return String
+     * 确认信息订单
+     */
+    public String checkOrder() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            if(orderService.checkOrder(type,simpleDateFormat.parse(checkInTime),simpleDateFormat.parse(leaveTime),leftRoom)){
+                return "checkOrderSuccess";
+            }
+            else {
+                return "checkOrderFail";
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return "checkOrderFail";
+        }
     }
 
     /**
@@ -158,10 +145,11 @@ public class OrderAction {
      * 新增订单信息
      */
     public String insertOrder() {
-        if (orderService.insertOrder(order))
-            return "updateOrderSuccess";
-        else
-            return "updateOrderFail";
+        if (orderService.insertOrder(order)) {
+            return "insertOrderSuccess";
+        } else {
+            return "insertOrderFail";
+        }
     }
 
     /**
@@ -173,9 +161,10 @@ public class OrderAction {
         ActionContext ctx = ActionContext.getContext();
         session = ctx.getSession();
         Register register = (Register) session.get("register");
-        if (orderService.findOrderByPhone(register.getPhone()))
+        if (orderService.findOrderByPhone(register.getPhone())) {
             return "findOrderByPhoneSuccess";
-        else
+        } else {
             return "findOrderByPhoneFail";
+        }
     }
 }

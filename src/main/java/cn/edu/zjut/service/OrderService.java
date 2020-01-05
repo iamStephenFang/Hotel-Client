@@ -126,30 +126,29 @@ public class OrderService implements IOrderService {
         }
     }
 
-    /**
-     * @author 王凌云
-     * @param order 订单
-     * @return boolean
-     * 更新订单信息
-     */
     @Override
-    public boolean updateOrder(Order order) {
-        System.out.println("正在执行updateOrder方法...");
-        int colNum = orderMapper.updateOrder(order);
+    public boolean checkOrder(String type,Date checkInTime,Date leaveTime,int leftRoom){
+        System.out.println("正在执行checkOrder方法");
+        ActionContext context = ActionContext.getContext();
+        request = (Map<String, List>) context.get("request");
         try {
-            if (colNum == 0){
-                System.out.println("更新订单信息失败...");
-                return false;
-            }
-            else {
-                System.out.println("更新订单信息成功...");
-                return true;
-            }
+            RoomType instance = roomTypeMapper.findByRoomType(type);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String beginDate = sdf.format(checkInTime);
+            String endDate = sdf.format(leaveTime);
+            int days = (int)(leaveTime.getTime()-checkInTime.getTime())/(24*3600*1000);
+            request.put("days",days);
+            request.put("leftRoom", leftRoom);
+            request.put("roomType", instance);
+            request.put("checkInTime", beginDate);
+            request.put("leaveTime", endDate);
+            return true;
         }catch (Exception e){
             e.printStackTrace();
             return false;
         }
     }
+
     @Override
     public int restRoomNum(String type, Date checkInTime ,Date leaveTime) {
         System.out.println("正在findNonemptyRoom方法...");
@@ -161,27 +160,29 @@ public class OrderService implements IOrderService {
             orders = orderMapper.findNonemptyRoom(type, checkInTime, leaveTime);
             int roomTypeNum = roomMapper.findRoomNumByType(type);
             int max=0;
-            Date beginDate = new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(checkInTime));
-            Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(leaveTime));
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String beginDate = sdf.format(checkInTime);
+            String endDate = sdf.format(leaveTime);
             Calendar calendar = Calendar.getInstance();
-            calendar.setTime(beginDate);
-            while (!calendar.getTime().after(endDate)){
+            calendar.setTime(sdf.parse(beginDate));
+            while (!calendar.getTime().after(sdf.parse(endDate))){
                 int count = 0;
                 for (Order order:orders){
-                    Date orderCheckInTime = new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(order.getCheckInTime()));
-                    Date orderLeaveTime = new SimpleDateFormat("yyyy-MM-dd").parse(String.valueOf(order.getLeaveTime()));
+                    Date orderCheckInTime = sdf.parse(String.valueOf(order.getCheckInTime()));
+                    Date orderLeaveTime = sdf.parse(String.valueOf(order.getLeaveTime()));
                     if (!calendar.getTime().after(orderLeaveTime) && !calendar.getTime().before(orderCheckInTime)){
                         count=count+order.getRoomNum();
                     }
                 }
-                if (count > max)
+                if (count > max) {
                     max = count;
+                }
                 calendar.add(Calendar.DATE,1);
             }
             request.put("leftRoom",roomTypeNum - max);
             request.put("roomType",instance);
-            request.put("checkInTime",checkInTime);
-            request.put("leaveTime",leaveTime);
+            request.put("checkInTime",beginDate);
+            request.put("leaveTime",endDate);
             return roomTypeNum - max;
         } catch (Exception e) {
             e.printStackTrace();
@@ -193,7 +194,6 @@ public class OrderService implements IOrderService {
     public boolean insertOrder(Order order){
         System.out.println("正在执行insertOrder方法...");
         int colNum = orderMapper.insertOrder(order);
-
         try {
             if (colNum == 0){
                 System.out.println("新增订单信息失败...");

@@ -9,8 +9,7 @@
         <result property="gender" column="gender"/>
         <result property="email" column="email"/>
         <result property="score" column="score"/>
-
-        <association property="member" javaType="member">
+        <association property="member">
             <id property="level" column="level"/>
             <result property="discount" column="discount"/>
             <result property="memberDetail" column="memberDetail"/>
@@ -27,7 +26,7 @@
             gender,
             email,
             score,
-            level,
+            r.level,
             discount,
             memberDetail
         from `register`r,`member`m
@@ -35,10 +34,19 @@
     </select>
 
     <!--    按手机号注册用户信息： -->
-    <select id="findByPhone" parameterType="string" resultType="register">
-        select *
-        from `register`
-        where phone=#{phone}
+    <select id="findByPhone" parameterType="string" resultMap="registerMapper">
+        select
+            phone,
+            account,
+            password,
+            gender,
+            email,
+            score,
+            r.level,
+            discount,
+            memberDetail
+        from `register`r,`member`m
+        where r.level=m.level and phone = #{phone}
     </select>
 
     <!--    更新会员信息-->

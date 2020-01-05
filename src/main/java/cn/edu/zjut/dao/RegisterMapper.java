@@ -17,6 +17,13 @@ public interface RegisterMapper {
 
     /**
      * @author 方宣淼
+     * @return List
+     * 查询当前用户等级信息
+     */
+    List<Register> findRegisterLevel(String phone);
+
+    /**
+     * @author 方宣淼
      * @param phone
      * @return Register
      * 通过电话号码查找注册用户信息
