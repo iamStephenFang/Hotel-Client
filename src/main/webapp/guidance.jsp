@@ -60,21 +60,7 @@
     </div>
 </div>
 
-<!--底部-->
-<div class="dock">
-    <ul class="dockCon">
-        <li class="first">
-            <a href="#">
-                <i class="i1"></i>
-            </a>
-        </li>
-        <li class="second">
-            <a href="findOrderByPhone.action">
-                <i class="i4"></i>
-            </a>
-        </li>
-    </ul>
-</div>
+<%@include file="dock.jsp" %>
 
 <%@include file="footer.jsp" %>
 <%@include file="nav.jsp" %>

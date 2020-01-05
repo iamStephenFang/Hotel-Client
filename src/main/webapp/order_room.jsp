@@ -105,32 +105,9 @@
   </dd>
 </dl>
 
-<div class="dock">
-  <ul class="dockCon">
-    <li class="first">
-      <a href="#">
-        <i class="i1"></i>
-      </a>
-    </li>
-    <li class="second">
-      <a href="findOrderByPhone.action">
-        <i class="i4"></i>
-      </a>
-    </li>
-  </ul>
-</div>
-
+<%@include file="dock.jsp" %>
 <%@include file="footer.jsp" %>
 <%@include file="nav.jsp" %>
-<%--<script type="text/javascript">--%>
-<%--    var discount = 0.8;--%>
-<%--    var roomNum = document.getElementById("number").getAttribute("value");--%>
-<%--    var oneRoomPrice = <s:property value="#request.roomType.roomPrice"/>;--%>
-<%--    var originalPrice = roomNum * oneRoomPrice;--%>
-<%--    var discountPrice = originalPrice * discount;--%>
-<%--    document.getElementById("originalPrice").innerText = "&nbsp;原价：￥"+originalPrice+" &nbsp;";--%>
-<%--    document.getElementById("discountPrice").innerText = discountPrice.toString();--%>
-<%--</script>--%>
 <script type="text/javascript">
   var discount = <s:property value="#session.register.member.discount"/>;
   var roomPrice = <s:property value="#request.roomType.roomPrice"/>;

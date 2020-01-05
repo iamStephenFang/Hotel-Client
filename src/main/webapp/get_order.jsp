@@ -48,7 +48,7 @@
         </s:iterator>
     </ul>
 </div>
-
+<%@include file="dock.jsp" %>
 <%@include file="footer.jsp" %>
 <%@include file="nav.jsp" %>
 </body>

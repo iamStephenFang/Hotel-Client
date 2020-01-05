@@ -6,35 +6,21 @@
 
 <struts>
     <package name="hotel" extends="struts-default" namespace="/">
-<!--&lt;!&ndash;        生成验证码&ndash;&gt;-->
-<!--        <action name="authGenerate" class="authCodeAction" method="authGenerate">-->
-<!--            <result name="GeneratedSuccess">/backend_login.jsp</result>-->
-<!--            <result name="GeneratedFail">/404.jsp</result>-->
-<!--        </action>-->
-
 <!--        登录       -->
         <action name="login" class="cn.edu.zjut.action.LoginAction" method="login">
             <result name="loginSuccess">/index.jsp</result>
             <result name="loginFail">/sign_in.jsp</result>
         </action>
-
 <!--        注册       -->
         <action name="insertRegister" class="cn.edu.zjut.action.RegisterAction" method="insertRegister">
             <result name="insertRegisterSuccess">/sign_up.jsp</result>
             <result name="insertRegisterFail">/sign_up.jsp</result>
         </action>
-
-<!--&lt;!&ndash;        修改信息    &ndash;&gt;-->
-<!--        <action name="updateRegister" class="cn.edu.zjut.action.RegisterAction" method="updateRegister">-->
-<!--            <result name="updateRegisterSuccess">XXXXXXXXXXXX</result>-->
-<!--            <result name="updateRegisterFail">XXXXXXXXXXX</result>-->
-<!--        </action>-->
-<!--&lt;!&ndash;        查询订单     &ndash;&gt;-->
-<!--        <action name="findByMultiConditions" class="cn.edu.zjut.action.OrderAction" method="findByMultiConditions">-->
-<!--            <result name="findByMultiConditionsSuccess">XXXXXXXXXXXX</result>-->
-<!--            <result name="findByMultiConditionsFail">XXXXXXXXXXX</result>-->
-<!--        </action>-->
-
+<!--        修改信息    -->
+        <action name="updateRegister" class="cn.edu.zjut.action.RegisterAction" method="updateRegister">
+            <result name="updateRegisterSuccess">/sign_in.jsp</result>
+            <result name="updateRegisterFail">/info_edit.jsp</result>
+        </action>
 <!--        查询空房     -->
         <action name="getRestRoomNum" class="cn.edu.zjut.action.OrderAction" method="getRestRoomNum">
             <result name="getRestRoomNumSuccess">/search_room.jsp</result>
@@ -49,17 +35,16 @@
             </result>
             <result name="deleteOrderFail">/404.jsp</result>
         </action>
-
         <!--查找房型信息-->
         <action name="findByType" class="cn.edu.zjut.action.RoomAction" method="findByRoomType">
             <result name="findByRoomTypeSuccess">/search_room.jsp</result>
             <result name="findByRoomTypeFail">/index.jsp</result>
         </action>
-<!--&lt;!&ndash;        新增订单     &ndash;&gt;-->
-<!--        <action name="insertOrder" class="cn.edu.zjut.action.OrderAction" method="insertOrder">-->
-<!--            <result name="insertOrderSuccess">XXXXXXXXXXXX</result>-->
-<!--            <result name="insertOrderFail">XXXXXXXXXXX</result>-->
-<!--        </action>-->
+<!--        新增订单     -->
+        <action name="insertOrder" class="cn.edu.zjut.action.OrderAction" method="insertOrder">
+            <result name="insertOrderSuccess">/order_success.jsp</result>
+            <result name="insertOrderFail">/404.jsp</result>
+        </action>
 <!--        按手机号查询订单     -->
         <action name="findOrderByPhone" class="cn.edu.zjut.action.OrderAction" method="findOrderByPhone">
             <result name="findOrderByPhoneSuccess">/get_order.jsp</result>
@@ -71,12 +56,5 @@
             <result name="checkOrderSuccess">/order_room.jsp</result>
             <result name="checkOrderFail">/search_room.jsp</result>
         </action>
-
-<!--&lt;!&ndash;        修改管理员或服务员信息 ——修改房客账户和密码&ndash;&gt;-->
-<!--        <action name="updateInfo" class="infoAction" method="updateInfo">-->
-<!--            <result name="updateSuccess" type="chain">authGenerate</result>-->
-<!--            <result name="updateFailed">/info_edit.jsp</result>-->
-<!--        </action>-->
-
     </package>
 </struts>
