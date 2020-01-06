@@ -41,7 +41,7 @@
             </s:if>
           </p>
           <p class="rprice-box">
-            ￥&nbsp;<input type="text" id="discountPrice" name="order.payment" value="" class="price" style="background-color: rgba(255,255,255,0);color: #FFFFFF;text-align: center;width: 125px;" readonly/>
+            ￥<input type="text" id="discountPrice" name="order.payment" value="" class="price" style="background-color: rgba(255,255,255,0);color: #FFFFFF;text-align: center;width: 125px;" readonly/>
           </p>
           <p class="rprice-line">
             <span class="n" id="originalPrice"></span>

@@ -2,6 +2,20 @@
          version="2.5"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+  <!--    登录验证过滤器-->
+  <filter>
+    <filter-name>accessFilter</filter-name>
+    <filter-class>cn.edu.zjut.filter.AccessFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>accessFilter</filter-name>
+    <url-pattern>/info_edit.jsp</url-pattern>
+    <url-pattern>/checkOrder.action</url-pattern>
+    <url-pattern>/findOrderByPhone.action</url-pattern>
+    <url-pattern>/insertOrder.action</url-pattern>
+  </filter-mapping>
+
   <!--    Struts核心过滤器-->
   <filter>
     <filter-name>struts2</filter-name>
