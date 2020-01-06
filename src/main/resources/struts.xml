@@ -7,27 +7,32 @@
 <struts>
     <package name="hotel" extends="struts-default" namespace="/">
 <!--        登录       -->
-        <action name="login" class="cn.edu.zjut.action.LoginAction" method="login">
+        <action name="login" class="loginAction" method="login">
             <result name="loginSuccess">/index.jsp</result>
             <result name="loginFail">/sign_in.jsp</result>
         </action>
 <!--        注册       -->
-        <action name="insertRegister" class="cn.edu.zjut.action.RegisterAction" method="insertRegister">
-            <result name="insertRegisterSuccess">/sign_up.jsp</result>
+        <action name="insertRegister" class="registerAction" method="insertRegister">
+            <result name="insertRegisterSuccess">/index.jsp</result>
             <result name="insertRegisterFail">/sign_up.jsp</result>
         </action>
+<!--        发送短信验证码    -->
+        <action name="sendMsg" class="phoneAction" method="sendMsg">
+            <result name="sendMsgSuccess">/index.jsp</result>
+            <result name="sendMsgFail">/sign_up.jsp</result>
+        </action>
 <!--        修改信息    -->
-        <action name="updateRegister" class="cn.edu.zjut.action.RegisterAction" method="updateRegister">
+        <action name="updateRegister" class="registerAction" method="updateRegister">
             <result name="updateRegisterSuccess">/sign_in.jsp</result>
             <result name="updateRegisterFail">/info_edit.jsp</result>
         </action>
 <!--        查询空房     -->
-        <action name="getRestRoomNum" class="cn.edu.zjut.action.OrderAction" method="getRestRoomNum">
+        <action name="getRestRoomNum" class="orderAction" method="getRestRoomNum">
             <result name="getRestRoomNumSuccess">/search_room.jsp</result>
             <result name="getRestRoomNumFail">/404.jsp</result>
         </action>
 <!--        取消订单     -->
-        <action name="deleteOrder" class="cn.edu.zjut.action.OrderAction" method="deleteOrder">
+        <action name="deleteOrder" class="orderAction" method="deleteOrder">
             <result name="deleteOrderSuccess" type="redirectAction">
                 <param name="namespace">/</param>
                 <param name="actionName">findOrderByPhone</param>
@@ -36,23 +41,23 @@
             <result name="deleteOrderFail">/404.jsp</result>
         </action>
         <!--查找房型信息-->
-        <action name="findByType" class="cn.edu.zjut.action.RoomAction" method="findByRoomType">
+        <action name="findByType" class="roomAction" method="findByRoomType">
             <result name="findByRoomTypeSuccess">/search_room.jsp</result>
             <result name="findByRoomTypeFail">/index.jsp</result>
         </action>
 <!--        新增订单     -->
-        <action name="insertOrder" class="cn.edu.zjut.action.OrderAction" method="insertOrder">
+        <action name="insertOrder" class="orderAction" method="insertOrder">
             <result name="insertOrderSuccess">/order_success.jsp</result>
             <result name="insertOrderFail">/404.jsp</result>
         </action>
 <!--        按手机号查询订单     -->
-        <action name="findOrderByPhone" class="cn.edu.zjut.action.OrderAction" method="findOrderByPhone">
+        <action name="findOrderByPhone" class="orderAction" method="findOrderByPhone">
             <result name="findOrderByPhoneSuccess">/get_order.jsp</result>
             <result name="findOrderByPhoneFail">/404.jsp</result>
         </action>
 
         <!--       确认订单信息-->
-        <action name="checkOrder" class="cn.edu.zjut.action.OrderAction" method="checkOrder">
+        <action name="checkOrder" class="orderAction" method="checkOrder">
             <result name="checkOrderSuccess">/order_room.jsp</result>
             <result name="checkOrderFail">/search_room.jsp</result>
         </action>

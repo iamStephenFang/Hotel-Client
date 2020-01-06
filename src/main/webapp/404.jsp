@@ -32,19 +32,19 @@
   <dt class="t">所有房间</dt>
   <dd>
     <ul class="clearfix ledmore-room-list">
-      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=总统套房"><img src="images/zt.jpg"
+      <li><a href="findByType.action?type=总统套房"><img src="images/zt.jpg"
                                                                                                      class="img"/>
         <div class="txt">总统套房</div>
       </a></li>
-      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=家庭房"><img src="images/qz.jpg"
+      <li><a href="findByType.action?type=家庭房"><img src="images/qz.jpg"
                                                                                                     class="img"/>
         <div class="txt">亲子套房</div>
       </a></li>
-      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=大床房"><img src="images/dc.jpg"
+      <li><a href="findByType.action?type=大床房"><img src="images/dc.jpg"
                                                                                                     class="img"/>
         <div class="txt">大床房</div>
       </a></li>
-      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=双床房"><img src="images/sc.jpg"
+      <li><a href="findByType.action?type=双床房"><img src="images/sc.jpg"
                                                                                                     class="img"/>
         <div class="txt">双床房</div>
       </a></li>

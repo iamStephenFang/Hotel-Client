@@ -193,6 +193,7 @@ public class OrderService implements IOrderService {
     @Override
     public boolean insertOrder(Order order){
         System.out.println("正在执行insertOrder方法...");
+        order.setOrderTime(new Date());
         int colNum = orderMapper.insertOrder(order);
         try {
             if (colNum == 0){

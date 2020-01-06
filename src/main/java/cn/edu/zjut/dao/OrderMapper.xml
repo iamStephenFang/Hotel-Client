@@ -84,10 +84,10 @@
 
     <!--     以下为朱炫帆写的正确率堪忧的代码-->
 <!--    新增订单-->
-    <insert id="insertOrder" parameterType="order">
+    <insert id="insertOrder" parameterType="order" keyColumn="orderId" useGeneratedKeys="true">
         insert
-        into `order` (orderId,roomType,orderTime,checkInTime,leaveTime,payment,roomNum,orderDetail,phone,orderStatus)
-              values (#{orderId},#{roomType},#{orderTime},#{checkInTime},#{leaveTime},
+        into `order` (roomType,orderTime,checkInTime,leaveTime,payment,roomNum,orderDetail,phone,orderStatus)
+              values (#{roomType},#{orderTime},#{checkInTime},#{leaveTime},
                       #{payment},#{roomNum},#{orderDetail},#{register.phone},0)
     </insert>
 

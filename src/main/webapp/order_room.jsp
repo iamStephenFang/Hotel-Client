@@ -25,28 +25,42 @@
   </dd>
   <dd class="item2">
     <div class="room-info-box">
-      <div class="room-i-t">
-        <p class="rprice-bot jz-promise">
-          <s:if test="#session.register != null">
-            <span class="name">享受会员折扣</span>
-          </s:if>
-        </p>
-        <p class="rprice-box">￥<span class="price" id="discountPrice"></span>总价</p>
-        <p class="rprice-line"><span class="n" id="originalPrice"></span></p><span
-          class="sj"></span>
-      </div>
       <form name="from" method="post">
-      <div class="room-i-c">
-        时间：<s:property value="checkInTime"/>-<s:property value="leaveTime"/><br/>
-        房型：<s:property value="#request.roomType.type"/><br/>
-        每间入住人数：≤<s:property value="#request.roomType.checkInNum"/>人<br/>
-        剩余房间数量：<s:property value="#request.leftRoom"/> 间<br/>
-        选择房间数量：<input id="roomNum" name="roomNum" type="number" max="<s:property value="#request.leftRoom"/>" min="1" value="1" style="max-width: 30px">间<br/>
-        享受会员折扣：<s:property value="#session.register.member.discount"/> <br/>
-        会员等级：<s:property value="#session.register.member.memberDetail"/> <br/>
-      </div>
+        <s:set var="checkInTime" value="%{#request.checkInTime}"/>
+        <s:set var="leaveTime" value="%{#request.leaveTime}"/>
+        <s:set var="type" value="%{#request.roomType.type}"/>
+
+        <s:hidden name="order.register.phone" value="%{#session.register.phone}"/>
+        <s:hidden name="checkInTime" value="%{#checkInTime}"/>
+        <s:hidden name="leaveTime" value="%{#leaveTime}"/>
+        <s:hidden name="order.roomType" value="%{#type}"/>
+        <div class="room-i-t">
+          <p class="rprice-bot jz-promise">
+            <s:if test="#session.register != null">
+              <span class="name">享受会员折扣</span>
+            </s:if>
+          </p>
+          <p class="rprice-box">
+            ￥&nbsp;<input type="text" id="discountPrice" name="order.payment" value="" class="price" style="background-color: rgba(255,255,255,0);color: #FFFFFF;text-align: center;width: 125px;" readonly/>
+          </p>
+          <p class="rprice-line">
+            <span class="n" id="originalPrice"></span>
+          </p>
+          <span class="sj"></span>
+        </div>
+
+        <div class="room-i-c">
+          时间：<s:property value="#checkInTime"/>&nbsp;至&nbsp;<s:property value="#leaveTime"/><br/>
+          房型：<s:property value="#type"/><br/>
+          每间入住人数：≤<s:property value="#request.roomType.checkInNum"/>人<br/>
+          剩余房间数量：<s:property value="#request.leftRoom"/>间<br/>
+          选择房间数量：<input id="roomNum" name="order.roomNum" type="number" max="<s:property value='#request.leftRoom'/>" min="1" value="1" style="max-width: 30px" onchange="priceChange()">间<br/>
+          享受会员折扣：<s:property value="#session.register.member.discount"/> <br/>
+          会员等级：<s:property value="#session.register.member.memberDetail"/> <br/>
+        </div>
+
         <input type="button" onclick="backAction()" class="room-i-btn jz-yd-btn" value="返回检索" data-img="img/erm.jpg" style="font-size: 14px">
-          <input type="button" onclick="orderAction()" class="room-i-btn jz-yd-btn" value="完成预订" data-img="img/erm.jpg" style="font-size: 14px;margin-top:7px;background-color: #8B0008">
+        <input type="button" onclick="orderAction()" class="room-i-btn jz-yd-btn" value="完成预订" data-img="img/erm.jpg" style="font-size: 14px;margin-top:7px;background-color: #8B0008">
       </form>
     </div>
   </dd>
@@ -85,20 +99,20 @@
   <dt class="t">所有房间</dt>
   <dd>
     <ul class="clearfix ledmore-room-list">
-      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=总统套房"><img src="images/zt.jpg"
-                                                                                                     class="img"/>
+      <li><a href="findByType.action?type=总统套房">
+        <img src="images/zt.jpg" class="img"/>
         <div class="txt">总统套房</div>
       </a></li>
-      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=家庭房"><img src="images/qz.jpg"
-                                                                                                    class="img"/>
+      <li><a href="findByType.action?type=家庭房">
+        <img src="images/qz.jpg" class="img"/>
         <div class="txt">亲子套房</div>
       </a></li>
-      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=大床房"><img src="images/dc.jpg"
-                                                                                                    class="img"/>
+      <li><a href="findByType.action?type=大床房">
+        <img src="images/dc.jpg" class="img"/>
         <div class="txt">大床房</div>
       </a></li>
-      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=双床房"><img src="images/sc.jpg"
-                                                                                                    class="img"/>
+      <li><a href="findByType.action?type=双床房">
+        <img src="images/sc.jpg" class="img"/>
         <div class="txt">双床房</div>
       </a></li>
     </ul>
@@ -109,18 +123,23 @@
 <%@include file="footer.jsp" %>
 <%@include file="nav.jsp" %>
 <script type="text/javascript">
-  var discount = <s:property value="#session.register.member.discount"/>;
-  var roomPrice = <s:property value="#request.roomType.roomPrice"/>;
-  var days = <s:property value="#request.days"/>;
-  var RoomNum = document.getElementById("roomNum");
-  var roomNum = document.getElementById("roomNum").getAttribute("value");
-  var originalPrice = roomNum*days*roomPrice;
-  var discountPrice = roomNum*days*roomPrice*discount;
-  document.getElementById("discountPrice").innerText = discountPrice;
-  document.getElementById("originalPrice").innerText = "原价：￥"+originalPrice;
+    window.onload=function () {
+      priceChange();
+    };
+
+    function priceChange() {
+        var discount = <s:property value="#session.register.member.discount"/>;
+        var roomPrice = <s:property value="#request.roomType.roomPrice"/>;
+        var days = <s:property value="#request.days"/>;
+        var roomNum = document.getElementById("roomNum").value;
+        var originalPrice = roomNum*days*roomPrice;
+        var discountPrice = roomNum*days*roomPrice*discount;
+        document.getElementById("discountPrice").setAttribute("value",discountPrice.toString());
+        document.getElementById("originalPrice").innerText = "原价：￥"+originalPrice;
+    }
 
     function backAction(){
-        document.from.action="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=<s:property value="#request.roomType.type"/>";
+        document.from.action="findByType.action?type=<s:property value='#type'/>";
         document.from.submit();
     }
 

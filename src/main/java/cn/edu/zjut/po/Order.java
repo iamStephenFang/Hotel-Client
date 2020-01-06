@@ -16,7 +16,7 @@ public class Order {
     private Integer roomNum; // 房间数量
     private String orderDetail; //订单备注
     private Register register; // 一个订单对应一个注册会员
-    private Boolean orderStatus; // 订单状态， 0 未完成，1 进行中，2 已完成
+    private Boolean orderStatus; // 订单状态， 0 未完成，1 已完成
     private List<CheckCustomer> checkCustomers; // 一个订单对应多个入住房客
 
     public Integer getOrderId() {

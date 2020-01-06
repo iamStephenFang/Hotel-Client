@@ -45,7 +45,7 @@
 
               <fieldset>
                 <label for="password" class="password">请输入您的密码
-                  <a href="*">忘记密码?</a></label>
+                  <a href="#">忘记密码?</a></label>
                 <input type="password" name="password" id="password" value="" tabindex="2" class="text-input">
               </fieldset>
             </div>

@@ -86,7 +86,7 @@
 <div class="roombox" id="roombox">
   <div class="roomlist">
     <div class="list-left">
-      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=总统套房"><img src="images/zt.jpg" alt=""/></a>
+      <a href="findByType.action?type=总统套房"><img src="images/zt.jpg" alt=""/></a>
     </div>
     <div class="list-right">
       <div class="list-right-1">
@@ -108,12 +108,12 @@
         <span class="icon"></span>
         <a href="#" class="list-right-link"></a>
       </div>
-      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=总统套房" class="list-right-link"></a>
+      <a href="findByType.action?type=总统套房" class="list-right-link"></a>
     </div>
   </div>
   <div class="roomlist">
     <div class="list-left">
-      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=家庭房"><img src="images/qz.jpg" alt=""/></a>
+      <a href="findByType.action?type=家庭房"><img src="images/qz.jpg" alt=""/></a>
     </div>
     <div class="list-right">
       <div class="list-right-1">
@@ -134,13 +134,13 @@
         <span class="icon"></span>
 
       </div>
-      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=家庭房" class="list-right-link"></a>
+      <a href="findByType.action?type=家庭房" class="list-right-link"></a>
 
     </div>
   </div>
   <div class="roomlist">
     <div class="list-left">
-      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=大床房"><img src="images/dc.jpg" alt=""/></a>
+      <a href="findByType.action?type=大床房"><img src="images/dc.jpg" alt=""/></a>
     </div>
     <div class="list-right">
       <div class="list-right-1">
@@ -160,12 +160,12 @@
         <span class="line"></span>
         <span class="icon"></span>
       </div>
-      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=大床房" class="list-right-link"></a>
+      <a href="findByType.action?type=大床房" class="list-right-link"></a>
     </div>
   </div>
   <div class="roomlist">
     <div class="list-left">
-      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=双床房"><img src="images/sc.jpg" alt=""/></a>
+      <a href="findByType.action?type=双床房"><img src="images/sc.jpg" alt=""/></a>
     </div>
     <div class="list-right">
       <div class="list-right-1">
@@ -185,7 +185,7 @@
         <span class="line"></span>
         <span class="icon"></span>
       </div>
-      <a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=双床房" class="list-right-link"></a>
+      <a href="findByType.action?type=双床房" class="list-right-link"></a>
     </div>
   </div>
 </div>

@@ -40,24 +40,39 @@
 
             <div class="form-field-group">
               <div class="form-field">
-                <fieldset class="user_name"><label for="register.phone">手机号码</label><input autocomplete="name"
-                                                                                      class="text-input" type="text"
-                                                                                      name="register.phone" id="register.phone"/>
+                <fieldset class="user_name">
+                  <label for="register.phone">手机号码</label>
+                  <input autocomplete="name" class="text-input" type="text" name="register.phone" id="register.phone"/>
                 </fieldset>
               </div>
 
               <div class="form-field">
-                <fieldset class="user_login"><label for="register.account">用户名</label><input autocorrect="off"
-                                                                                       autocapitalize="off"
-                                                                                       autocomplete="username"
-                                                                                       class="text-input" type="text"
-                                                                                       name="register.account"
-                                                                                       id="register.account"/></fieldset>
+                <fieldset>
+                  <label for="register.account">用户名</label>
+                  <input autocorrect="off" autocapitalize="off" autocomplete="username"
+                         class="text-input" type="text" name="register.account" id="register.account"/>
+                </fieldset>
+              </div>
+            </div>
+
+            <div class="form-field-group">
+              <div class="form-field">
+                <fieldset>
+                  <label for="authCode">验证码</label>
+                  <input class="text-input" type="text" name="authCode" id="authCode"/>
+                </fieldset>
+              </div>
+
+              <div class="form-field">
+                <fieldset>
+                  <input type="button" id="code" value="获取验证码" class="button" style="margin-top: 28px;"/>
+                </fieldset>
               </div>
             </div>
 
             <div class="form-field">
-              <fieldset class="user_gender"><label>性别</label>
+              <fieldset>
+                <label>性别</label>
                 <select name="register.gender" style="width: 100%;-webkit-box-sizing: border-box;box-sizing: border-box;border: none;border-radius: 6px;padding: 9px 15px;margin-right: 8px; background: #f5f6f7; color: #444; -webkit-box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.03); box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.03); outline: none;height:40px;font-size: 16px">
                   <option value="true">先生</option>
                   <option value="false">女士</option>
@@ -66,16 +81,16 @@
             </div>
 
             <div class="form-field">
-              <fieldset class="user_email"><label for="register.email">电子邮箱</label><input class="text-input" type="text"
-                                                                                      name="register.email"
-                                                                                      id="register.email"/></fieldset>
+              <fieldset>
+                <label for="register.email">电子邮箱</label>
+                <input class="text-input" type="text" name="register.email" id="register.email"/>
+              </fieldset>
             </div>
 
             <div class="form-field">
-              <fieldset class="password"><label for="register.password">密码</label><input class="text-input"
-                                                                                          type="password"
-                                                                                          name="register.password"
-                                                                                          id="register.password"/>
+              <fieldset>
+                <label for="register.password">密码</label>
+                <input class="text-input" type="password" name="register.password" id="register.password"/>
               </fieldset>
             </div>
 
@@ -84,14 +99,14 @@
                 <input type="checkbox" id="user_agree_to_terms" name="user[agree_to_terms]"/>
                 <label for="user_agree_to_terms">
                   注册账号证明您已知晓我司相关
-                  <a target="_blank" href="/terms">用户细则</a>，
-                  <a target="_blank" href="/privacy">隐私政策</a>。
+                  <a target="_blank" href="#">用户细则</a>，
+                  <a target="_blank" href="#">隐私政策</a>。
                 </label>
               </fieldset>
             </div>
 
             <div class="form-btns">
-              <input type="submit" name="commit" value="创建账户" class="button" data-disable-with="Create Account"/>
+              <input type="submit" value="创建账户" class="button" data-disable-with="Create Account"/>
             </div>
 
             <p class="auth-link-mobile">
@@ -104,7 +119,60 @@
     </main>
   </section>
 </div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
 
+    $("#code").on("click", function () {
+        var phone = document.getElementById("register.phone").value;
+
+        $.ajax({
+            async: false,
+            cache: false,
+            type: 'POST',
+            data: {'phone': phone},
+            url: 'sendMsg.action',
+            dataType: 'json',
+            success: function (data) {
+                if (data.code == "sendMsgSuccess") {
+                    alert("发送成功");
+                } else {
+                    alert("网络异常");
+                }
+            }
+        });
+
+        var code = $("#code");
+        code.attr("disabled", "disabled");
+        setTimeout(function () {
+            code.css("opacity", "0.8");
+        }, 1000);
+        var time = 60;
+        var set = setInterval(function () {
+            code.val("(" + --time + ")秒后重新获取");
+        }, 1000);
+        setTimeout(function () {
+            code.attr("disabled", false).val("重新获取验证码");
+            clearInterval(set);
+        }, 60000);
+    });
+
+    // function codeButton() {
+    //     var code = document.getElementById("code");
+    //     code.setAttribute("disabled","true");
+    //
+    //     setTimeout(function () {
+    //         code.style.opacity="0.8";
+    //     }, 1000);
+    //
+    //     var time = 60;
+    //     var set = setInterval(function () {
+    //         code.setAttribute("value","(" + --time + ")秒后重新获取");
+    //     }, 1000);
+    //     setTimeout(function () {
+    //         code.attr("disabled", false).val("重新获取验证码");
+    //         clearInterval(set);
+    //     }, 60000);
+    // }
+</script>
 </body>
-
 </html>

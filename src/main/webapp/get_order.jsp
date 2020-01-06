@@ -41,7 +41,7 @@
                 <h4>总金额：<s:property value="payment"/></h4>
                 <h4>备注：<s:property value="orderDetail"/></h4>
                 <button onclick="window.location.href = 'http://localhost:8080/hotel_client_war_exploded/deleteOrder.action?orderId=<s:property value='orderId'/>'"
-                        style="color:red;cursor:pointer;">取消订单</button>
+                        style="color:red;cursor:pointer;background-color: #FFFFFF">取消订单</button>
                 <p><s:property value="checkInTime"/>-<s:property value="leaveTime"/></p>
             </div>
         </li>

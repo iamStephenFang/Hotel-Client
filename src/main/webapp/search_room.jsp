@@ -50,15 +50,15 @@
       <div class="room-i-c" style="padding: 20px 5%;">
         房型：<s:property value="#request.roomType.type"/><br/>
         入住人数：≤<s:property value="#request.roomType.checkInNum"/>人<br/>
-        <s:if test="#request.leftRoom!= null">
-        剩余房间数量：<s:property value="#request.leftRoom"/><br/>
+        <s:if test="#request.leftRoom != null">
+          剩余房间数量：<s:property value="#request.leftRoom"/><br/>
+          <s:hidden name="leftRoom" value="%{#request.leftRoom}"/>
         </s:if>
-        <s:hidden name="leftRoom" value="%{#request.leftRoom}"/>
         <s:hidden name="type" value="%{#request.roomType.type}"/>
       </div>
       <input type="button" onclick="searchAction()" class="room-i-btn jz-yd-btn" value="立即检索" data-img="img/erm.jpg" style="font-size: 14px">
         <s:if test="#request.leftRoom!= null">
-        <input type="button" onclick="orderAction()" class="room-i-btn jz-yd-btn" value="立即预订" data-img="img/erm.jpg" style="font-size: 14px;margin-top:7px;background-color: #8B0008">
+          <input type="button" onclick="orderAction()" class="room-i-btn jz-yd-btn" value="立即预订" data-img="img/erm.jpg" style="font-size: 14px;margin-top:7px;background-color: #8B0008">
         </s:if>
       </form>
     </div>
@@ -98,20 +98,17 @@
   <dt class="t">所有房间</dt>
   <dd>
     <ul class="clearfix ledmore-room-list">
-      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=总统套房"><img src="images/zt.jpg"
-                                                   class="img"/>
+      <li><a href="findByType.action?type=总统套房">
+        <img src="images/zt.jpg" class="img"/>
         <div class="txt">总统套房</div>
       </a></li>
-      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=家庭房"><img src="images/qz.jpg"
-                                                   class="img"/>
+      <li><a href="findByType.action?type=家庭房"><img src="images/qz.jpg" class="img"/>
         <div class="txt">亲子套房</div>
       </a></li>
-      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=大床房"><img src="images/dc.jpg"
-                                                   class="img"/>
+      <li><a href="findByType.action?type=大床房"><img src="images/dc.jpg" class="img"/>
         <div class="txt">大床房</div>
       </a></li>
-      <li><a href="http://localhost:8080/hotel_client_war_exploded/findByType.action?type=双床房"><img src="images/sc.jpg"
-                                                   class="img"/>
+      <li><a href="findByType.action?type=双床房"><img src="images/sc.jpg" class="img"/>
         <div class="txt">双床房</div>
       </a></li>
     </ul>

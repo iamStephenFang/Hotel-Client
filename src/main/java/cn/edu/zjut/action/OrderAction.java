@@ -1,6 +1,5 @@
 package cn.edu.zjut.action;
 
-import cn.edu.zjut.po.CheckCustomer;
 import cn.edu.zjut.po.Order;
 import cn.edu.zjut.po.Register;
 import cn.edu.zjut.service.IOrderService;
@@ -9,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
 
 @Controller
@@ -18,7 +17,7 @@ import java.util.Map;
 public class OrderAction {
     private Order order;
     private String type;
-    private int orderId;
+    private Integer orderId;
     private String phone;
     private String checkInTime;
     private String leaveTime;
@@ -43,8 +42,8 @@ public class OrderAction {
     public void setPhone(String phone) { this.phone = phone; }
     public String getPhone() { return phone; }
 
-    public void setOrderId(int orderId) { this.orderId = orderId; }
-    public int getOrderId() { return orderId; }
+    public void setOrderId(Integer orderId) { this.orderId = orderId; }
+    public Integer getOrderId() { return orderId; }
 
     public void setCheckInTime(String checkInTime) {
         this.checkInTime = checkInTime;
@@ -145,6 +144,14 @@ public class OrderAction {
      * 新增订单信息
      */
     public String insertOrder() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            order.setCheckInTime(sdf.parse(checkInTime));
+            order.setLeaveTime(sdf.parse(leaveTime));
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return "insertOrderFail";
+        }
         if (orderService.insertOrder(order)) {
             return "insertOrderSuccess";
         } else {
