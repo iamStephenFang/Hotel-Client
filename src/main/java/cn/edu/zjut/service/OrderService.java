@@ -151,25 +151,25 @@ public class OrderService implements IOrderService {
 
     @Override
     public int restRoomNum(String type, Date checkInTime ,Date leaveTime) {
-        System.out.println("正在findNonemptyRoom方法...");
+        System.out.println("正在执行restRoomNum方法...");
         ActionContext context = ActionContext.getContext();
         request = (Map<String, List>) context.get("request");
         RoomType instance = roomTypeMapper.findByRoomType(type);
         List<Order> orders = new ArrayList<Order>();
         try {
             orders = orderMapper.findNonemptyRoom(type, checkInTime, leaveTime);
+            System.out.println("找到" + type + "非空房间" + orders.size() + "间");
             int roomTypeNum = roomMapper.findRoomNumByType(type);
+            System.out.println(type + "共有" + roomTypeNum + "间");
+
             int max=0;
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            String beginDate = sdf.format(checkInTime);
-            String endDate = sdf.format(leaveTime);
             Calendar calendar = Calendar.getInstance();
-            calendar.setTime(sdf.parse(beginDate));
-            while (!calendar.getTime().after(sdf.parse(endDate))){
+            calendar.setTime(checkInTime);
+            while (!calendar.getTime().after(leaveTime)){
                 int count = 0;
                 for (Order order:orders){
-                    Date orderCheckInTime = sdf.parse(String.valueOf(order.getCheckInTime()));
-                    Date orderLeaveTime = sdf.parse(String.valueOf(order.getLeaveTime()));
+                    Date orderCheckInTime = order.getCheckInTime();
+                    Date orderLeaveTime = order.getLeaveTime();
                     if (!calendar.getTime().after(orderLeaveTime) && !calendar.getTime().before(orderCheckInTime)){
                         count=count+order.getRoomNum();
                     }
@@ -179,10 +179,11 @@ public class OrderService implements IOrderService {
                 }
                 calendar.add(Calendar.DATE,1);
             }
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             request.put("leftRoom",roomTypeNum - max);
             request.put("roomType",instance);
-            request.put("checkInTime",beginDate);
-            request.put("leaveTime",endDate);
+            request.put("checkInTime",sdf.format(checkInTime));
+            request.put("leaveTime",sdf.format(leaveTime));
             return roomTypeNum - max;
         } catch (Exception e) {
             e.printStackTrace();
