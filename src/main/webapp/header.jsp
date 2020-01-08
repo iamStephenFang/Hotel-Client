@@ -4,8 +4,8 @@
 <!--顶部导航部分-->
 <div class="topnav clearfix" id="topnav">
   <p class="sider-link">
-    <a href="最新优惠.html">最新优惠</a>
-    <a href="#">客房预订</a>
+    <a href="guidance.jsp">服务指南</a>
+    <a href="index.jsp">客房预订</a>
   </p>
   <a href="index.jsp" class="logo"><img src="images/HAPE.png" alt=""/></a>
   <div class="sider-nav">

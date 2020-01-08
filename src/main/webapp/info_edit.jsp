@@ -81,6 +81,20 @@
               </fieldset>
             </div>
 
+            <div class="form-field">
+              <fieldset class="user_level"><label for="register.level">用户等级</label>
+                <input class="text-input" type="text" name="register.level"
+                       value="<s:property value='#session.register.member.memberDetail'/>" id="register.level" readonly/>
+              </fieldset>
+            </div>
+
+            <div class="form-field">
+              <fieldset class="user_score"><label for="register.score">用户积分</label>
+                <input class="text-input" type="text" name="register.score"
+                       value="<s:property value='#session.register.score'/>" id="register.score" readonly/>
+              </fieldset>
+            </div>
+
             <div class="form-btns">
               <input type="submit" name="commit" value="修改账户" class="button" data-disable-with="Create Account"/>
             </div>

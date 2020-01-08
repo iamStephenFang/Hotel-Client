@@ -56,9 +56,7 @@
             account = #{account},
             password = #{password},
             gender = #{gender},
-            email = #{email},
-            level = #{member.level},
-            score = #{score}
+            email = #{email}
       where phone = #{phone}
     </update>
 

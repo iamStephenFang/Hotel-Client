@@ -28,7 +28,7 @@
         <s:iterator value="#request.orders" >
         <li>
             <div class="cont-li-box">
-                <s:if test="%{orderStatus==true}">
+                <s:if test="%{orderStatus==false}">
                 <h3>订单未完成</h3>
                 </s:if>
                 <s:else>
@@ -40,8 +40,10 @@
                 <h4>房间数：<s:property value="roomNum"/></h4>
                 <h4>总金额：<s:property value="payment"/></h4>
                 <h4>备注：<s:property value="orderDetail"/></h4>
+                <s:if test="%{orderStatus==false}">
                 <button onclick="window.location.href = 'http://localhost:8080/hotel_client_war_exploded/deleteOrder.action?orderId=<s:property value='orderId'/>'"
                         style="color:red;cursor:pointer;background-color: #FFFFFF">取消订单</button>
+                </s:if>
                 <p><s:property value="checkInTime"/>-<s:property value="leaveTime"/></p>
             </div>
         </li>
