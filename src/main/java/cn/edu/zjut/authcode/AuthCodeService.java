@@ -26,13 +26,13 @@ public class AuthCodeService implements IAuthCodeService {
             SERVER_URL="https://api.netease.im/sms/sendcode.action";
     //网易云信分配Appkey
     private static final String
-            APP_KEY="295894d4d22406a82a760faead2b6372";
+            APP_KEY="APP KEY";
     //网易云信分配的密钥
-    private static final String APP_SECRET="a165cecce33d";
+    private static final String APP_SECRET="APP SECRET";
     //随机数
     private static final String NONCE="123456789";
     //短信模板ID
-    private static final String TEMPLATEID="14838698";
+    private static final String TEMPLATEID="TEMPLATE ID";
     //验证码长度，范围4～10，默认为4
     private static final String CODELEN="6";
 

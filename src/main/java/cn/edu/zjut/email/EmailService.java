@@ -12,11 +12,11 @@ import java.util.Properties;
 @Service
 public class EmailService implements IEmailService {
     // 发件人邮箱地址
-    private static final String FROM = "m13646686983@163.com";
+    private static final String FROM = "FROM EMAIL ADDRESS";
     // 发件人称号，同邮箱地址
-    private static final String USER = "m13646686983@163.com";
+    private static final String USER = "EQUAL TO FROM EMAIL ADDRESS";
     // 发件人邮箱客户端授权码
-    private static final String PASSWORD = "163authorization";
+    private static final String PASSWORD = "AUTHORIZATION PASSWORD";
 
     /**
      * @author 王凌云
